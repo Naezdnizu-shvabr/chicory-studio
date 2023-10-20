@@ -1,0 +1,15 @@
+@mixin flex(
+  $justify-content: center,
+  $align-items: center,
+  $flex-direction: row,
+  $flex-wrap: nowrap
+) {
+  display: flex;
+  flex-wrap: #{$flex-wrap};
+  justify-content: #{$justify-content};
+  align-items: #{$align-items};
+  flex-direction: #{$flex-direction};
+}
+@mixin transition($time: 0.2s, $time-function: ease, $target: all) {
+  transition: #{$target} #{$time-function} #{$time};
+}
