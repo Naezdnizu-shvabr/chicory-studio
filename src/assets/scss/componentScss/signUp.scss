@@ -86,9 +86,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid;
-            border-image: linear-gradient(to right, #c78fff 0%, #fff 30%, #c78fff 100%);
-            border-image-slice: 1;
+            background-color: transparent;
+            border: 1px solid gray;
+            
+
             transition: background-position 0.5s, scale ease 0.3s;
             background-size: 300% 100%;
             cursor: pointer;

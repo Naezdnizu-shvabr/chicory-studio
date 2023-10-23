@@ -3,6 +3,7 @@ import TextFieldInput from '../../UI/TextFieldInput';
 import googleIcon from './../../../../assets/img/google.svg';
 import { useForm } from 'react-hook-form';
 import { registration } from "../../../../db/registration";
+import {signInWithGoogle} from "./../../../../db/signInWithGoogle"
 
 const SignUpForm = () => {
     const { register, handleSubmit } = useForm();
@@ -12,6 +13,7 @@ const SignUpForm = () => {
         } catch (error) {
             console.error(error);
         }
+
     };
     return (
         <form className='signUp__form' onSubmit={handleSubmit(onSubmit)}>
@@ -27,9 +29,13 @@ const SignUpForm = () => {
                 <span>Or Sign up with</span>
                 <div className='signUp__form-additional-line'></div>
             </div>
-            <div className='signUp__form-google'>
+            <button 
+            type='button'
+            className='signUp__form-google'
+            onClick={()=>{signInWithGoogle()}}
+            >
                 <img src={googleIcon} alt="" />
-            </div>
+            </button>
         </form>
     );
 }

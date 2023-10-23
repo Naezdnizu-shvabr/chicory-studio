@@ -22,7 +22,6 @@ const TextFieldInput = ({type,label,register,name}) => {
                 className="signUp__form-input"
                 label={label}
                 type={type}
-                onChange={(e)=>{console.log(e.target.value)}}
             />
     );
 }
