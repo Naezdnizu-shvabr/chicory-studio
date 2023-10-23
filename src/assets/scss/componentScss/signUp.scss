@@ -1,0 +1,128 @@
+@import './../mixins';
+@import './../variables';
+
+
+.signUp{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    &__container{
+        width: 100%;
+        max-width: 1440px;
+        padding: 50px;
+        margin: 0 auto;
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    &__left-side{
+        width: 380px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    &__top-block{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__title{
+        color: white;
+        font-size: $standart-fz;
+    }
+    &__return{
+        cursor: pointer;
+        transition: transform ease 0.4s;
+        &:hover{
+            transform: rotate(360deg);
+        }
+    }
+    &__form{
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        &-input{
+            width: 100%;
+        }
+        &-btn {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            width: 100%;
+            font-size: $link-fz;
+            background-image: linear-gradient(to right,#C78FFF 0%, #FFF 30%, #C78FFF 100%);
+            background-size: 300% 300%;
+            transition: 0.5s;
+            &:hover {
+                background-position: right center;
+            }
+          }
+          
+        &-additional{
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            align-items: center;
+            &-line{
+                width: 30%;
+                height: 1px;
+                background-color: $primary-color;
+            }
+            span{
+                margin: 0 10px 0 10px;
+                color: $primary-color;
+                font-size: $small-fz;
+                white-space:nowrap
+            }
+        }
+        &-google {
+            width: 100%;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid;
+            border-image: linear-gradient(to right, #C78FFF 0%, #FFF 30%, #C78FFF 100%);
+            border-image-slice: 1; 
+            transition: background-position 0.5s, scale ease 0.3s;
+            background-size: 300% 100%; 
+            cursor: pointer;
+            &:hover {
+                scale: 1.1;
+                background-position: right center;
+            }
+        }
+    }
+    &__right-side{
+        width: 100%;
+        max-width: 520px;
+        height: 600px;
+        img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width:764px) {
+        &__container{
+            padding: 25px;
+        }
+        &__left-side{
+            padding: 25px;
+        }
+    }
+    @media screen and (max-width:499px) {
+        &__container{
+            padding: 0;
+        }
+        &__right-side{
+            display: none;
+        }
+    }
+}
