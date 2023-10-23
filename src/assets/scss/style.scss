@@ -1,0 +1,12 @@
+@import "./nullstyle";
+@import "./mixins";
+@import "./variables";
+@import "./fonts";
+
+*{
+    font-family: $primary-ff;
+}
+
+.block{
+    font-size: $link-fz;
+}
