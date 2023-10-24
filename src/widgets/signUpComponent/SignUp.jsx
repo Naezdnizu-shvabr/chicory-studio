@@ -1,7 +1,8 @@
 import React from 'react';
 import signUpBackgroundImg from '../../assets/img/7b6e580de3a2f7678ee62c8a03488098.png';
-import SignUpForm from './components/signUpForm/SignUpForm';
 import returnIcon from './../../assets/img/keyboard-return.svg';
+import SignUpForm from '../../entities/signUpForm/SignUpForm';
+
 const SignUp = () => {
     return (
         <div className='signUp'>

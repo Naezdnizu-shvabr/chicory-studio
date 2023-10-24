@@ -1,11 +1,11 @@
 import React from 'react';
 import "./assets/scss/style.scss"
-import SignUp from './pages/signUpPage/SignUp';
+import SignUpPage from './pages/signUpPage/SignUpPage';
 
 const App = () => {
     return (
         <div>
-          <SignUp />
+          <SignUpPage />
         </div>
     );
 };

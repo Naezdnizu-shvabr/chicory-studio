@@ -23,7 +23,7 @@ const TextFieldInput = ({type,label,register,name}) => {
                 label={label}
                 type={type}
             />
-    );
+    );  
 }
 
 export default TextFieldInput;

@@ -1,9 +1,9 @@
 import React from 'react';
-import TextFieldInput from '../../UI/TextFieldInput';
-import googleIcon from './../../../../assets/img/google.svg';
 import { useForm } from 'react-hook-form';
-import { registration } from "../../../../db/registration";
-import {signInWithGoogle} from "./../../../../db/signInWithGoogle"
+import { registration } from "../../servises/registration";
+import {signInWithGoogle} from "../../servises/signInWithGoogle"
+import TextFieldInput from '../../shared/textFieldInput/ui/TextFieldInput';
+import { FcGoogle} from 'react-icons/fc';
 
 const SignUpForm = () => {
     const { register, handleSubmit } = useForm();
@@ -13,7 +13,6 @@ const SignUpForm = () => {
         } catch (error) {
             console.error(error);
         }
-
     };
     return (
         <form className='signUp__form' onSubmit={handleSubmit(onSubmit)}>
@@ -34,7 +33,7 @@ const SignUpForm = () => {
             className='signUp__form-google'
             onClick={()=>{signInWithGoogle()}}
             >
-                <img src={googleIcon} alt="" />
+                <FcGoogle />
             </button>
         </form>
     );
