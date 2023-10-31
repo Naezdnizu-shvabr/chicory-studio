@@ -1,11 +1,13 @@
-import React from 'react';
-import "./assets/scss/style.scss"
-import SignUpPage from './pages/signUpPage/SignUpPage';
+import React from "react";
+import "./assets/scss/style.scss";
+import HomePage from "./pages/homePage/HomePage";
+import SideMenu from "./widgets/sideMenu/SideMenu";
 
 const App = () => {
     return (
         <div>
-          <SignUpPage />
+            <HomePage />
+            <SideMenu />
         </div>
     );
 };
