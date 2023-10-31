@@ -1,18 +1,76 @@
+@import "./../variables";
+
 .menu {
+  width: 130px;
+  height: 720px;
   display: flex;
   flex-direction: column;
-  margin: 0 55px;
+  align-items: center;
+  background: $primary-color-dark;
+  padding: 50px 26px;
 
   &__nav {
-    margin-bottom: 50px;
+    &-name {
+      margin-bottom: 50px;
+    }
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+    }
+    &-img {
+        width: 20px;
+      svg {
+        path {
+          fill: $primary-color;
+        }
+      }
+    }
+    svg {
+      path {
+        fill: $primary-color;
+      }
+    }
   }
 
   img {
     width: 20px;
+
   }
+
+
 
   div {
     margin-top: 10px;
+    color: #8C8C8C;
+  }
+
+  &__title {
     color: white;
+    font-size: 24px;
+    width: 78px;
+    height: 24px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &__line {
+    width: 78px;
+    height: 1px;
+    background-color: $primary-color;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  &__nav-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
   }
 }

@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 import Header from "../../widgets/header/Header";
+import SideMenu from "../../widgets/sideMenu/SideMenu";
 
-const DefaultLayout = ({children}) => {
+const DefaultLayout = ({ children }) => {
     return (
         <div className="container">
-            <Header/>
+            <SideMenu />
+            <Header />
             {children}
         </div>
     );
