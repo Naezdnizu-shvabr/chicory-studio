@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import DefaultLayout from "../../layouts/Default/DefaultLayout";
 
 const HomePage = () => {
-    return (
-        <div>
-            HomePage
-        </div>
-    );
+    return <DefaultLayout>HomePage</DefaultLayout>;
 };
 
 export default HomePage;
