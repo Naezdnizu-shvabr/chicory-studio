@@ -4,6 +4,7 @@
 @import "./fonts";
 @import './componentScss/signUp.scss';
 @import './componentScss/header.scss';
+@import './componentScss/card.scss';
 
 *{
     font-family: $primary-ff;
@@ -13,7 +14,7 @@
 body{
     -webkit-tap-highlight-color: transparent;
     opacity: 0.99;
-    background: #2D2D2D;
+    background: #2A2A2A;
 }
 
 .block{

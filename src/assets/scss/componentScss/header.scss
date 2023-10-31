@@ -36,7 +36,7 @@
             gap: 20px;
             li{
                 cursor: pointer;
-                color: #8C8C8C;
+                color: $primary-color;
                 @include transition;
                 &:hover{
                     color: white;

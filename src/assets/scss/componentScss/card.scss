@@ -1,0 +1,59 @@
+@import "./../mixins";
+@import "./../variables";
+
+.card {
+    display: flex;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: $primary-color-dark;
+    width: 355px;
+    height: 180px;
+    border-radius: 8px;
+    &__img{
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+    &__item-data{
+        padding: 20px;
+    }
+    &__genre {
+        
+        display: flex;
+        gap: 5px;
+        margin-bottom: 20px;
+        li {
+            color: $primary-color;
+        }
+        span {
+            color: $primary-color;
+        }
+    }
+    &__title{
+        font-size: 20px;
+        color: white;
+        margin-bottom: 5px;
+    }
+    &__date{
+        color: $primary-color;
+        margin-bottom: 38px;
+    }
+    &__user-score{
+        color: $primary-color;
+    }
+    &__score-line {
+        display: block;
+        margin-bottom: 5px;
+        position: relative;
+        width: 100px;
+        height: 1px;
+        background-color: $secondary-color-opacity;
+        z-index: 1;
+        &::after {
+            content: '';
+            z-index: 2;
+            position: absolute;
+            width: 85px;
+            height: 1px;
+            background-color: $secondary-color;
+        }
+    }
+}
