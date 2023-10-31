@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import Header from "../../widgets/header/Header";
 
-const DefaultLayout = ({children}) => {
+const DefaultLayout = ({ children }) => {
     return (
         <div className="container">
-            <Header/>
+            <Header />
             {children}
         </div>
     );
