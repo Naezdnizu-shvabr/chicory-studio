@@ -7,7 +7,7 @@ const options = [
     { id: 3, name: "Anime" },
 ];
 
-const Navigation = () => {
+const HeaderNavigation = () => {
     return (
         <nav className="header__nav">
             <ul>
@@ -19,4 +19,4 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+export default HeaderNavigation;

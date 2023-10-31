@@ -1,13 +1,13 @@
 import React from 'react';
-import Title from '../../shared/header/Title';
-import Nav from '../../shared/header/Navigation';
+import HeaderNavigation from '../../shared/header/HeaderNavigation';
+import HeaderTitle from '../../shared/header/HeaderTitle';
 
 const Header = () => {
     return (
         <header className='header'>
             <div className='header__container'>
-                <Title />
-                <Nav />
+                <HeaderTitle name={'Chicory studio'}/>
+                <HeaderNavigation />
             </div>
         </header>
     );
