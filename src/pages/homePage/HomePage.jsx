@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from '../../widgets/header/Header';
+import DefaultLayout from "../../layouts/Default/DefaultLayout";
 
 const HomePage = () => {
     return (
-        <div>
-            <Header />
+        <DefaultLayout>
             HomePage
-        </div>
+        </DefaultLayout>
     );
 };
 
