@@ -1,10 +1,15 @@
 import React from 'react';
+import Title from '../../shared/header/Title';
+import Nav from '../../shared/header/Navigation';
 
 const Header = () => {
     return (
-        <div>
-            header
-        </div>
+        <header className='header'>
+            <div className='header__container'>
+                <Title />
+                <Nav />
+            </div>
+        </header>
     );
 }
 
