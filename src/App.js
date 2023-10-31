@@ -1,12 +1,10 @@
 import React from 'react';
 import "./assets/scss/style.scss"
-import SignUpPage from './pages/signUpPage/SignUpPage';
+import AppRouter from './router/AppRouter';
 
 const App = () => {
     return (
-        <div>
-          <SignUpPage />
-        </div>
+          <AppRouter />
     );
 };
 
