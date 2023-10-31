@@ -1,11 +1,10 @@
 import React from 'react';
 import "./assets/scss/style.scss"
+import AppRouter from './router/AppRouter';
 
 const App = () => {
     return (
-        <div>
-          App
-        </div>
+          <AppRouter />
     );
 };
 
