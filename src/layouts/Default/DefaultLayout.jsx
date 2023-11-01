@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "../../widgets/header/Header";
 import SideMenu from "../../widgets/sideMenu/SideMenu";
 
 const DefaultLayout = ({ children }) => {
     return (
-        <div className="container">
+        <div className="app">
             <SideMenu />
-            <Header />
-            {children}
+            <div className="app__container">{children}</div>
         </div>
     );
 };

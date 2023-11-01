@@ -4,26 +4,50 @@
 @import "./fonts";
 @import './componentScss/signUp.scss';
 @import './componentScss/header.scss';
+@import './componentScss/sideMenu.scss';
 @import './componentScss/card.scss';
+@import './componentScss/home.scss';
+@import './componentScss/movie-backscreen.scss';
 
 *{
     font-family: $primary-ff;
+    font-weight: 400;
 }
 
 //temp option
 body{
     -webkit-tap-highlight-color: transparent;
-    opacity: 0.99;
-    background: white;
+    background: $primary-color-dark;
 }
 
 .block{
     font-size: $link-fz;
 }
 
-.container{
+.app{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding-top: 25px;
+    display: flex;
+    &__container{
+        position: relative;
+        max-width: 1150px;
+        width: 100%;
+        padding-top: 25px;
+    }
+}
+
+.default-title{
+    color: $contrast-color;
+    font-size: $primary-title-fz;
+}
+
+.default-grey-text{
+    color: $primary-color;
+    font-size: $standart-fz;
+}
+
+.default-text{
+    color: $contrast-color;
+    font-size: $standart-fz;
 }
