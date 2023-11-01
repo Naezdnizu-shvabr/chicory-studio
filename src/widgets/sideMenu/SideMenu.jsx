@@ -1,5 +1,4 @@
 import React from "react";
-import "./../../assets/scss/componentScss/sideMenu.scss";
 import { links } from "../../entities/links/config/links";
 import Links from "../../entities/links/Links";
 import { socialLinks } from "../../entities/links/config/socialLinks";

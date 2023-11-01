@@ -1,0 +1,27 @@
+@import "./../mixins";
+@import "./../variables";
+
+.movie-backscreen{
+  padding: 0 20px;
+  .default-title,
+  .default-grey-text{
+    margin-bottom: 20px;
+  }
+  .default-text{
+    margin-bottom: 50px;
+  }
+  &__genres{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .default-grey-text{
+      margin-bottom: unset;
+    }
+  }
+  &__dot{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: $primary-color;
+  }
+}

@@ -1,6 +1,8 @@
 @import "./../variables";
 
 .menu {
+  position: sticky;
+  top: 0;
   width: 130px;
   height: 720px;
   display: flex;
