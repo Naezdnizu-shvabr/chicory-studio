@@ -1,0 +1,9 @@
+@import "./../mixins";
+@import "./../variables";
+
+.default{
+    &-text{
+        max-width: 815px;
+        width: 100%;
+    }
+}

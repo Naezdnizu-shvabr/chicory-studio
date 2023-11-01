@@ -3,15 +3,15 @@
 
 .home{
   width: 100%;
-  padding-top: 400px;
+  // padding-top: 400px;
   position: relative;
   &__header{
-    padding: 20px 0;
-    position: fixed;
+    // padding: 20px 0;
+    position: relative;
     top: 0;
     width: 100%;
     max-width: 1150px;
-    background: $secondary-color;
+    // background: $secondary-color;
     &-img{
       position: absolute;
       top: 0;
@@ -19,6 +19,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
+      object-fit: cover;
     }
     &-blur{
       position: absolute;

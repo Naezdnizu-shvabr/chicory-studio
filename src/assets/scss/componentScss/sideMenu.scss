@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
   width: 130px;
-  height: 720px;
+  height: 711px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,7 @@
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
+      cursor: pointer;
     }
     &-img {
         width: 20px;
@@ -74,5 +75,6 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    cursor: pointer;
   }
 }
