@@ -7,7 +7,7 @@ import { DataContext } from "../../context/Contex";
 
 const HomePage = () => {
     const topAnime = useContext(DataContext);
-    const [homeImage,setHomeImage] = useState(homeHeaderImg || topAnime);
+    const [homeImage, setHomeImage] = useState(homeHeaderImg || topAnime);
     useEffect(() => {
         if (topAnime.data && topAnime.data.length > 0) {
             setHomeImage(topAnime.data[0].images.webp.large_image_url);
