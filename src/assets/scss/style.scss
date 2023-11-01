@@ -8,6 +8,7 @@
 @import './componentScss/card.scss';
 @import './componentScss/home.scss';
 @import './componentScss/movie-backscreen.scss';
+@import './componentScss/defaultElements.scss';
 
 *{
     font-family: $primary-ff;
@@ -17,7 +18,8 @@
 //temp option
 body{
     -webkit-tap-highlight-color: transparent;
-    background: $primary-color-dark;
+    background: #2B2B2B;
+    overflow-x: hidden;
 }
 
 .block{
@@ -33,7 +35,7 @@ body{
         position: relative;
         max-width: 1150px;
         width: 100%;
-        padding-top: 25px;
+        // padding-top: 25px;
     }
 }
 

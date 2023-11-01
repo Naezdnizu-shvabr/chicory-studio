@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import DefaultTitle from "../../shared/default/defaultTitle/DefaultTitle";
 import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyText";
 import DefaultText from "../../shared/default/defaultText/DefaultText";
+import { DataContext } from "../../context/Contex";
 
-const genres = ["Romantic", "Adventure", "Mystery", "Romantic", "Adventure", "Mystery"];
+
 
 const MovieBackscreen = () => {
+    const topAnime = useContext(DataContext);
+
+    function сropText(text, maxWords) {
+        const words = text.split(' ');
+    
+        if (words.length > maxWords) {
+            return words.slice(0, maxWords).join(' ') + '...';
+        }
+    
+        return text;
+    }
+    console.log(topAnime);
     return (
-        <div className="movie-backscreen">
-            <DefaultTitle title="Your name" />
-            <DefaultGreyText text="2016. 1 h 33 m. 11 ep’s" />
-            <DefaultText
-                text="The story is about a boy from Tokyo and a girl from the provinces
-             who discover that there is a strange and inexplicable connection between them.
-             In their dreams, they change bodies and live each other's lives. "
-            />
-            <div className="movie-backscreen__genres">
-                <DefaultGreyText text={genres[0]} />
-                <div className="movie-backscreen__dot"></div>
-                <DefaultGreyText text={genres[1]} />
-                <div className="movie-backscreen__dot"></div>
-                <DefaultGreyText text={genres[2]} />
-            </div>
-        </div>
+        topAnime.data && topAnime.data.length > 0 ? (
+            topAnime.data.slice(0, 1).map(anime => (
+                <div className="movie-backscreen" key={anime.mal_id}>
+                    <DefaultTitle title={anime.title} />
+                    <DefaultGreyText text={anime.aired.string} />
+                    <DefaultText
+                        text={сropText(anime.synopsis,35)} 
+                    />
+                    <div className="movie-backscreen__genres">
+                        <DefaultGreyText text={anime.genres[0].name} />
+                        <div className="movie-backscreen__dot"></div>
+                        <DefaultGreyText text={anime.genres[1].name} />
+                        <div className="movie-backscreen__dot"></div>
+                        <DefaultGreyText text={anime.genres[2].name} />
+                    </div>
+                </div>
+            ))
+        ) : (null)
     );
 };
 

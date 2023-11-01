@@ -3,6 +3,7 @@ import HeaderNavigation from '../../shared/header/HeaderNavigation';
 import HeaderTitle from '../../shared/header/HeaderTitle';
 
 const Header = () => {
+
     return (
         <header className='header'>
             <div className='header__container'>
