@@ -4,16 +4,15 @@ import Header from "../../widgets/header/Header";
 import MovieBackscreen from "../../widgets/movieModal/MovieBackscreen";
 import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { DataContext } from "../../context/Contex";
+import { animeServices } from "../../servises/animeServices";
 
 const HomePage = () => {
-    const topAnime = useContext(DataContext);
-    const [homeImage, setHomeImage] = useState(homeHeaderImg || topAnime);
+    const topAnimeContext = useContext(DataContext);
+    const [homeImage, setHomeImage] = useState(homeHeaderImg);
     useEffect(() => {
-        if (topAnime.data && topAnime.data.length > 0) {
-            setHomeImage(topAnime.data[0].images.webp.large_image_url);
-        }
-    }, [topAnime]);
-    console.log(topAnime.data);
+        animeServices.getTopAnime(topAnimeContext,setHomeImage);
+    }, [topAnimeContext]);
+
     return (
         <DefaultLayout>
             <div className="home">
@@ -25,7 +24,7 @@ const HomePage = () => {
                     />
                     <div className="home__header-blur"></div>
                     <Header />
-                    <MovieBackscreen />
+                    <MovieBackscreen topAnime={topAnimeContext}/>
                 </div>
                 <div style={{ height: "300px" }}>HomePage</div>
                 <div style={{ height: "300px" }}>HomePage</div>
