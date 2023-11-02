@@ -3,7 +3,7 @@ import catalogIcon from "../../../assets/icons/List button.svg";
 import savedIcon from "../../../assets/icons/Saved button.svg";
 
 export const links = [
-    { name: "Home", img: homeIcon },
-    { name: "Catalog", img: catalogIcon },
-    { name: "Saved", img: savedIcon },
+    { name: "Home", img: homeIcon, to: "/" },
+    { name: "Catalog", img: catalogIcon, to: "/" },
+    { name: "Saved", img: savedIcon, to: "/" },
 ];
