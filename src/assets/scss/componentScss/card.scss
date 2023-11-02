@@ -8,15 +8,14 @@
     width: 355px;
     height: 180px;
     border-radius: 8px;
-    &__img{
+    &__img {
         border-bottom-left-radius: 8px;
         border-top-left-radius: 8px;
     }
-    &__item-data{
+    &__item-data {
         padding: 20px;
     }
     &__genre {
-        
         display: flex;
         gap: 5px;
         margin-bottom: 20px;
@@ -27,16 +26,16 @@
             color: $primary-color;
         }
     }
-    &__title{
+    &__title {
         font-size: 20px;
         color: white;
         margin-bottom: 5px;
     }
-    &__date{
+    &__date {
         color: $primary-color;
-        margin-bottom: 38px;
+        margin-bottom: 18px;
     }
-    &__user-score{
+    &__user-score {
         color: $primary-color;
     }
     &__score-line {
@@ -44,16 +43,15 @@
         margin-bottom: 5px;
         position: relative;
         width: 100px;
-        height: 1px;
+        height: 2px;
         background-color: $secondary-color-opacity;
         z-index: 1;
-        &::after {
-            content: '';
-            z-index: 2;
+        &_active {
+            display: block;
             position: absolute;
-            width: 85px;
-            height: 1px;
+            height: 2px;
             background-color: $secondary-color;
+            z-index: 2;
         }
     }
 }

@@ -1,10 +1,16 @@
 import React from "react";
 
-const CardScoreLine = () => {
+const CardScoreLine = ({ score }) => {
+    const percentScore = score * 10;
+    const scoreLineActive = {
+        width: `${percentScore}px`,
+    };
     return (
         <>
-            <span className="card__score-line"></span>
-            <div className="card__user-score">User score 93%</div>
+            <span className="card__score-line" style={{ scoreLineActive }}>
+                <span style={scoreLineActive} className="card__score-line_active"></span>
+            </span>
+            <div className="card__user-score">User score {percentScore.toFixed(1)}%</div>
         </>
     );
 };
