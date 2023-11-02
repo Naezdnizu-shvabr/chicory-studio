@@ -1,13 +1,19 @@
 import React from "react";
 
-const CardGenre = () => {
+const CardGenre = ({ genres }) => {
+    console.log(genres);
     return (
         <ul className="card__genre">
-            <li className="card-ganre-link">Action</li>
-            <span>·</span>
-            <li className="card-ganre-link">Adventure</li>
-            <span>·</span>
-            <li className="card-ganre-link">Fantasy</li>
+            {genres.map((genre, index) => {
+                return (
+                    <>
+                        <li key={genre.mal_id} className="card-ganre-link">
+                            {genre.name}
+                        </li>
+                        {index < genres.length - 1 && <span>·</span>}
+                    </>
+                );
+            })}
         </ul>
     );
 };

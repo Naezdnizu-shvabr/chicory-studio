@@ -9,6 +9,8 @@
 @import './componentScss/home.scss';
 @import './componentScss/movie-backscreen.scss';
 @import './componentScss/defaultElements.scss';
+@import './componentScss/popular.scss';
+@import './componentScss/slider.scss';
 
 *{
     font-family: $primary-ff;
@@ -35,21 +37,5 @@ body{
         position: relative;
         max-width: 1150px;
         width: 100%;
-        // padding-top: 25px;
     }
-}
-
-.default-title{
-    color: $contrast-color;
-    font-size: $primary-title-fz;
-}
-
-.default-grey-text{
-    color: $primary-color;
-    font-size: $standart-fz;
-}
-
-.default-text{
-    color: $contrast-color;
-    font-size: $standart-fz;
 }

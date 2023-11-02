@@ -14,7 +14,7 @@
   transition: #{$target} #{$time-function} #{$time};
 }
 
-$maxWidth: 1440;
+$maxWidth: 1280;
 
 @mixin adaptive-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;

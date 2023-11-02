@@ -1,0 +1,11 @@
+@import "../mixins";
+@import "../variables";
+
+.popular{
+    margin-top: 30px;
+    padding-left: 20px;
+    &__title{
+        font-size: 32px;
+        color: $contrast-color;
+    }
+}
