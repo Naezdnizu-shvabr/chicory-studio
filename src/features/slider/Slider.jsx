@@ -2,15 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
-import Card from "../card/Card";
-import { DataContext } from "../../context/Contex";
-import { swiperConfig } from "./config/swiperConfig";
-const Slider = () => {
+import Card from "../../shared/card/Card";
+import { swiperConfig } from "../../entities/slider/config/swiperConfig";
+const Slider = ({topAnime}) => {
     const [slidesPerView, setSlidesPerView] = useState(3.1);
-    const topAnime = useContext(DataContext);
     const handleResize = () => {
         const newWidth = window.innerWidth;
-        swiperConfig.getSwiperConfig(newWidth, setSlidesPerView);
+        swiperConfig.getSwiperSlideConfig(newWidth, setSlidesPerView);
     };
     useEffect(() => {
         window.addEventListener("resize", handleResize);

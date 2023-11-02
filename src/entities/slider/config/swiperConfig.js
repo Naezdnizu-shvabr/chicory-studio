@@ -1,5 +1,5 @@
 const swiperConfig = {
-    getSwiperConfig: (newWidth, setSlidesPerView) => {
+    getSwiperSlideConfig: (newWidth, setSlidesPerView) => {
         if (newWidth <= 710) {
             setSlidesPerView(1.1);
         } else if (newWidth <= 730) {

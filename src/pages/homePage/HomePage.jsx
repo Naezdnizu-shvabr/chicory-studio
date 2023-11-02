@@ -5,7 +5,7 @@ import MovieBackscreen from "../../widgets/movieModal/MovieBackscreen";
 import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { DataContext } from "../../context/Contex";
 import { animeServices } from "../../servises/animeServices";
-import Popular from "../../widgets/popularBlock/Popular";
+import SliderBlock from "../../widgets/sliderBlock/SliderBlock";
 
 const HomePage = () => {
     const topAnimeContext = useContext(DataContext);
@@ -27,10 +27,10 @@ const HomePage = () => {
                     <Header />
                     <MovieBackscreen topAnime={topAnimeContext} />
                 </div>
-                <Popular topAnime={topAnimeContext} />
-                <Popular topAnime={topAnimeContext} />
-                <Popular topAnime={topAnimeContext} />
-                <Popular topAnime={topAnimeContext} />
+                <SliderBlock title={'Popular'} topAnime={topAnimeContext}/>
+                <SliderBlock title={'Recomended'} topAnime={topAnimeContext}/>
+                <SliderBlock title={'Best rated'} topAnime={topAnimeContext}/>
+                <SliderBlock title={'New'} topAnime={topAnimeContext}/>
             </div>
         </DefaultLayout>
     );
