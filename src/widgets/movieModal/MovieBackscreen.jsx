@@ -13,7 +13,7 @@ const MovieBackscreen = ({ topAnime, index }) => {
 
     return anime ? (
         <div className="movie-backscreen" key={anime.mal_id}>
-            <div className="default__title">
+            <div className="movie-backscreen__title">
                 <DefaultTitle title={anime.title} animeID={anime.mal_id} />
 
                 <Link to={`anime/${anime.mal_id}/`}>

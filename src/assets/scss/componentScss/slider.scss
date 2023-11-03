@@ -4,9 +4,11 @@
 .slider{
     margin-top: 20px;
     margin-bottom: 56px;
+
+    //Change height to 261px if one or more slider blocks needed
     height: 300px;
     cursor:grab;
     @media screen and (max-width:530px) {
-        height: 300px;
+        height: 326px;
     }
 }
