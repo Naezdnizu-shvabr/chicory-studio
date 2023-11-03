@@ -1,4 +1,4 @@
-const swiperConfig = {
+export const swiperConfig = {
     getSwiperSlideConfig: (newWidth, setSlidesPerView) => {
         if (newWidth <= 710) {
             setSlidesPerView(1.1);
@@ -17,5 +17,3 @@ const swiperConfig = {
         }
     },
 };
-
-export { swiperConfig };

@@ -4,6 +4,8 @@ import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyTex
 import DefaultText from "../../shared/default/defaultText/DefaultText";
 import { animeServices } from "../../servises/animeServices";
 import useWindowResize from "../../hooks/useWindowResize";
+import { Link } from "react-router-dom";
+import { FiExternalLink } from "react-icons/fi";
 
 const MovieBackscreen = ({ topAnime, index }) => {
     const { isFullWidth } = useWindowResize;
@@ -11,7 +13,13 @@ const MovieBackscreen = ({ topAnime, index }) => {
 
     return anime ? (
         <div className="movie-backscreen" key={anime.mal_id}>
-            <DefaultTitle title={anime.title} animeID={anime.mal_id} />
+            <div className="default__title">
+                <DefaultTitle title={anime.title} animeID={anime.mal_id} />
+
+                <Link to={`anime/${anime.mal_id}/`}>
+                    <FiExternalLink style={{ fontSize: "30px" }} stroke="white" />
+                </Link>
+            </div>
             <DefaultGreyText text={anime.aired.string} />
             <DefaultText
                 text={animeServices.сropText(anime.synopsis, isFullWidth ? 25 : 35)}

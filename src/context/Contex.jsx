@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
-import { axiosRequests } from "../servises/axiosRequests";
-import { api } from "../servises/api";
+import { getAnime } from "../servises/axiosRequests";
+import { topAnimeUrl, animeRecomendationsUrl } from "../servises/api";
 
 export const DataContext = createContext();
 
@@ -9,8 +9,8 @@ const Context = ({ children }) => {
     const [topRecomended, setTopRecomended] = useState([]);
     
     useEffect(() => {
-        axiosRequests.getAnime(api.topAnimeUrl, setTopAnime);
-        axiosRequests.getAnime(api.animeRecomendationsUrl, setTopRecomended);
+        getAnime(topAnimeUrl, setTopAnime);
+        getAnime(animeRecomendationsUrl, setTopRecomended);
     }, []);
     return (
         <DataContext.Provider

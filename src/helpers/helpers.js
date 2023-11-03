@@ -4,4 +4,4 @@ const helpers = {
     },
 }
 
-export {helpers}
+export const {getRandomNum} = helpers;

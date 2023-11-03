@@ -3,4 +3,4 @@ const api = {
     animeRecomendationsUrl :"https://api.jikan.moe/v4/recommendations/anime",
 }
 
-export {api};
+export const {topAnimeUrl, animeRecomendationsUrl} = api;

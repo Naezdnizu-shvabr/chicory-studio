@@ -12,4 +12,4 @@ const axiosRequests = {
         },
 }
 
-export {axiosRequests}
+export const { getAnime } = axiosRequests;
