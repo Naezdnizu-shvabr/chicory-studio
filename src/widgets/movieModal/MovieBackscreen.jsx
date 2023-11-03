@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
 
 const MovieBackscreen = ({ topAnime, index }) => {
-    const { isFullWidth } = useWindowResize;
+    const { isFullWidth } = useWindowResize(885);
     const anime = topAnime[index];
 
     return anime ? (
