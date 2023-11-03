@@ -1,10 +1,10 @@
 import React from "react";
 import previewImg from "../../assets/img/74fcdac8b3b0094a437b15bc54389849.webp";
-import CardGenre from "./ui/CardGenre";
-import CardScoreLine from "./ui/CardScoreLine";
-import CardTitle from "./ui/CardTitle";
-import CardDate from "./ui/CardDate";
-const Card = ({ topAnime }) => {
+import CardGenre from "../card/ui/CardGenre";
+import CardScoreLine from "../card/ui/CardScoreLine";
+import CardTitle from "../card/ui/CardTitle";
+import CardDate from "../card/ui/CardDate";
+const CardPopular = ({ topAnime }) => {
     return (
         <div className="card">
             <img
@@ -28,4 +28,4 @@ const Card = ({ topAnime }) => {
     );
 };
 
-export default Card;
+export default CardPopular;

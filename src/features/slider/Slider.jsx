@@ -1,33 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
-import Card from "../../shared/card/Card";
-import { swiperConfig } from "../../entities/slider/config/swiperConfig";
-const Slider = ({topAnime}) => {
-    const [slidesPerView, setSlidesPerView] = useState(3.1);
-    const handleResize = () => {
-        const newWidth = window.innerWidth;
-        swiperConfig.getSwiperSlideConfig(newWidth, setSlidesPerView);
-    };
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        handleResize();
+import CardRecomended from "../../shared/cardRecomended/CardRecomended";
+import CardPopular from "../../shared/cardPopular/CardPopular";
+import useWindowResize from "../../hooks/useWindowResize";
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+const Slider = ({ topAnime, topRecomended }) => {
+    const { slidesPerView } = useWindowResize();
+    console.log(slidesPerView);
     return (
         <Swiper
             modules={[A11y]}
             className="main-swiper slider"
             spaceBetween={20}
             slidesPerView={slidesPerView}>
-            {topAnime.data && topAnime.data.length > 0
-                ? topAnime.data.slice(0, 19).map((anime) => (
-                      <SwiperSlide key={anime.mal_id}>
-                          <Card topAnime={anime} />
+            {topAnime && topAnime.length > 0
+                ? topAnime.map((anime, index) => (
+                      <SwiperSlide key={index}>
+                          <CardPopular topAnime={anime} />
+                      </SwiperSlide>
+                  ))
+                : null}
+            {topRecomended && topRecomended.length > 0
+                ? topRecomended.map((anime, index) => (
+                      <SwiperSlide key={index}>
+                          <CardRecomended topRecomended={anime} />
                       </SwiperSlide>
                   ))
                 : null}

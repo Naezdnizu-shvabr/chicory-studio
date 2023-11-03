@@ -1,26 +1,23 @@
 import React, { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import { getAnime } from "../servises/axiosRequests";
+import { topAnimeUrl, animeRecomendationsUrl } from "../servises/api";
 
 export const DataContext = createContext();
 
 const Context = ({ children }) => {
     const [topAnime, setTopAnime] = useState([]);
-
-    useEffect(() => {
-        const getTopAnime = () =>{
-            axios
-            .get("https://api.jikan.moe/v4/top/anime")
-            .then((response) => {
-                setTopAnime(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        }
-        getTopAnime();
-    }, []);
+    const [topRecomended, setTopRecomended] = useState([]);
     
-    return <DataContext.Provider value={topAnime}>{children}</DataContext.Provider>;
+    useEffect(() => {
+        getAnime(topAnimeUrl, setTopAnime);
+        getAnime(animeRecomendationsUrl, setTopRecomended);
+    }, []);
+    return (
+        <DataContext.Provider
+            value={{ topAnime: topAnime, topRecomended: topRecomended }}>
+            {children}
+        </DataContext.Provider>
+    );
 };
 
 export default Context;

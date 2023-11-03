@@ -1,13 +1,14 @@
-import React from 'react';
-import Slider from '../../features/slider/Slider';
+import React from "react";
+import Slider from "../../features/slider/Slider";
 
-const SliderBlock= ({topAnime, title}) => {
+const SliderBlock = ({ topAnime, title, topRecomended }) => {
     return (
-        <div className='popular'>
-            <h2 className='popular__title'>{title}</h2>
-            <Slider topAnime={topAnime}/>
+        <div className="slider-block">
+            <h2 className="slider-block__title">{title}</h2>
+            {topAnime ? <Slider topAnime={topAnime} /> : null}
+            {topRecomended ? <Slider topRecomended={topRecomended} /> : null}
         </div>
     );
-}
+};
 
 export default SliderBlock;

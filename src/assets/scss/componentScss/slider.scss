@@ -4,6 +4,9 @@
 .slider{
     margin-top: 20px;
     margin-bottom: 56px;
-    height: 186px;
+    height: 198px;
     cursor:grab;
+    @media screen and (max-width:530px) {
+        height: 326px;
+    }
 }

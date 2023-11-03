@@ -9,7 +9,7 @@
 @import './componentScss/home.scss';
 @import './componentScss/movie-backscreen.scss';
 @import './componentScss/defaultElements.scss';
-@import './componentScss/popular.scss';
+@import './componentScss/slider-block.scss';
 @import './componentScss/slider.scss';
 
 *{
@@ -37,5 +37,16 @@ body{
         position: relative;
         max-width: 1150px;
         width: 100%;
+    }
+}
+.slider-recomended{
+    height: 186px;
+    margin-top: 20px;
+}
+.card-recomended{
+    &__img{
+        width: 126px;
+        height: 186px;
+        object-fit: cover;
     }
 }

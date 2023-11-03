@@ -9,6 +9,11 @@
         @include adaptive-font(24,17);
         
     }
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     &-title{
         color: $contrast-color;
         @include adaptive-font(36,32);

@@ -1,11 +1,14 @@
 @import "../mixins";
 @import "../variables";
 
-.popular{
+.slider-block{
     margin-top: 30px;
     padding-left: 20px;
     &__title{
         font-size: 32px;
         color: $contrast-color;
+    }
+    @media screen and (max-width:530px) {
+        padding-right: 20px;
     }
 }

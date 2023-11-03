@@ -6,13 +6,20 @@ import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { DataContext } from "../../context/Contex";
 import { animeServices } from "../../servises/animeServices";
 import SliderBlock from "../../widgets/sliderBlock/SliderBlock";
+import { getRandomNum } from "../../helpers/helpers";
 
 const HomePage = () => {
-    const topAnimeContext = useContext(DataContext);
+    const animeContext = useContext(DataContext);
+    const [randomIndex, setRandomIndex] = useState(0);
     const [homeImage, setHomeImage] = useState(homeHeaderImg);
+    
     useEffect(() => {
-        animeServices.getTopAnime(topAnimeContext, setHomeImage);
-    }, [topAnimeContext]);
+        setRandomIndex(getRandomNum(0, animeContext.topAnime.length));
+    }, [animeContext.topAnime]);
+    
+    useEffect(() => {
+        animeServices.getTopAnime(animeContext.topAnime, setHomeImage, randomIndex);
+    }, [animeContext.topAnime, randomIndex]);
 
     return (
         <DefaultLayout>
@@ -25,12 +32,18 @@ const HomePage = () => {
                     />
                     <div className="home__header-blur"></div>
                     <Header />
-                    <MovieBackscreen topAnime={topAnimeContext} />
+                    <MovieBackscreen
+                        topAnime={animeContext.topAnime}
+                        index={randomIndex}
+                    />
                 </div>
-                <SliderBlock title={'Popular'} topAnime={topAnimeContext}/>
-                <SliderBlock title={'Recomended'} topAnime={topAnimeContext}/>
-                <SliderBlock title={'Best rated'} topAnime={topAnimeContext}/>
-                <SliderBlock title={'New'} topAnime={topAnimeContext}/>
+                <SliderBlock title={"Popular"} topAnime={animeContext.topAnime} />
+                <SliderBlock
+                    title={"Recomended"}
+                    topRecomended={animeContext.topRecomended}
+                />
+                <SliderBlock title={"Best rated"} topAnime={animeContext.topAnime} />
+                <SliderBlock title={"New"} topAnime={animeContext.topAnime} />
             </div>
         </DefaultLayout>
     );

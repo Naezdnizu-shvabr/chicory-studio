@@ -1,7 +1,6 @@
 import React from "react";
 
 const CardGenre = ({ genres }) => {
-    console.log(genres);
     return (
         <ul className="card__genre">
             {genres.map((genre, index) => {
