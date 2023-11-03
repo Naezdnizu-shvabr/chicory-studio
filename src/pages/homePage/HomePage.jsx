@@ -6,16 +6,15 @@ import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { DataContext } from "../../context/Contex";
 import { animeServices } from "../../servises/animeServices";
 import SliderBlock from "../../widgets/sliderBlock/SliderBlock";
+import { helpers } from "../../helpers/helpers";
 
 const HomePage = () => {
     const animeContext = useContext(DataContext);
     const [randomIndex, setRandomIndex] = useState(0);
     const [homeImage, setHomeImage] = useState(homeHeaderImg);
-    function getRandomNum(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
+    
     useEffect(() => {
-        setRandomIndex(getRandomNum(0, animeContext.topAnime.length));
+        setRandomIndex(helpers.getRandomNum(0, animeContext.topAnime.length));
     }, [animeContext.topAnime]);
     
     useEffect(() => {

@@ -3,24 +3,15 @@ import DefaultTitle from "../../shared/default/defaultTitle/DefaultTitle";
 import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyText";
 import DefaultText from "../../shared/default/defaultText/DefaultText";
 import { animeServices } from "../../servises/animeServices";
+import useWindowResize from "../../hooks/useWindowResize";
 
 const MovieBackscreen = ({ topAnime, index }) => {
-    const [isFullWidth, setIsFullWidth] = useState(false);
-    const handleWindowSize = () => {
-        setIsFullWidth(window.innerWidth <= 885);
-    };
-    useEffect(() => {
-        window.addEventListener("resize", handleWindowSize);
-        handleWindowSize();
-        return () => {
-            window.removeEventListener("resize", handleWindowSize);
-        };
-    }, []);
+    const { isFullWidth } = useWindowResize;
     const anime = topAnime[index];
-    console.log(index);
+
     return anime ? (
         <div className="movie-backscreen" key={anime.mal_id}>
-            <DefaultTitle title={anime.title} />
+            <DefaultTitle title={anime.title} animeID={anime.mal_id} />
             <DefaultGreyText text={anime.aired.string} />
             <DefaultText
                 text={animeServices.сropText(anime.synopsis, isFullWidth ? 25 : 35)}

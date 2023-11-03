@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
-import { swiperConfig } from "../../entities/slider/config/swiperConfig";
 import CardRecomended from "../../shared/cardRecomended/CardRecomended";
 import CardPopular from "../../shared/cardPopular/CardPopular";
+import useWindowResize from "../../hooks/useWindowResize";
+
 const Slider = ({ topAnime, topRecomended }) => {
-    const [slidesPerView, setSlidesPerView] = useState(3.1);
-    const handleResize = () => {
-        const newWidth = window.innerWidth;
-        swiperConfig.getSwiperSlideConfig(newWidth, setSlidesPerView);
-    };
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        handleResize();
+    const { slidesPerView } = useWindowResize();
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    console.log(topRecomended);
     return (
         <Swiper
             modules={[A11y]}
@@ -28,15 +16,15 @@ const Slider = ({ topAnime, topRecomended }) => {
             spaceBetween={20}
             slidesPerView={slidesPerView}>
             {topAnime && topAnime.length > 0
-                ? topAnime.map((anime) => (
-                      <SwiperSlide key={anime.mal_id}>
+                ? topAnime.map((anime, index) => (
+                      <SwiperSlide key={index}>
                           <CardPopular topAnime={anime} />
                       </SwiperSlide>
                   ))
                 : null}
             {topRecomended && topRecomended.length > 0
-                ? topRecomended.map((anime) => (
-                      <SwiperSlide key={anime.mal_id}>
+                ? topRecomended.map((anime, index) => (
+                      <SwiperSlide key={index}>
                           <CardRecomended topRecomended={anime} />
                       </SwiperSlide>
                   ))
