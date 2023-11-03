@@ -8,4 +8,7 @@
         font-size: 32px;
         color: $contrast-color;
     }
+    @media screen and (max-width:530px) {
+        padding-right: 20px;
+    }
 }

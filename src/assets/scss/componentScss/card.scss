@@ -29,6 +29,7 @@
         span {
             color: $primary-color;
         }
+        
     }
     &__title {
         font-size: 20px;
@@ -67,6 +68,15 @@
         }
         &-link{
             color: $primary-color;
+        }
+    }
+    @media screen and (max-width:530px) {
+        height: 320px;
+        &__genre{
+            flex-wrap: wrap;
+        }
+        &__img{
+            width: 200px;
         }
     }
 }
