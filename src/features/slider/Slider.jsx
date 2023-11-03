@@ -8,7 +8,6 @@ import useWindowResize from "../../hooks/useWindowResize";
 
 const Slider = ({ topAnime, topRecomended }) => {
     const { slidesPerView } = useWindowResize();
-    console.log(slidesPerView);
     return (
         <Swiper
             modules={[A11y]}

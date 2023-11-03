@@ -8,7 +8,14 @@
     margin-bottom: 20px;
   }
   .default-text{
+    max-width: 815px;
+    width: 100%;
     margin-bottom: 50px;
+  }
+  &__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &__genres{
     display: flex;
