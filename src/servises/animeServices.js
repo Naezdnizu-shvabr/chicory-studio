@@ -1,8 +1,8 @@
 const animeServices = {
-    getTopAnime: (topAnime, setHomeImage) => {
-        if (topAnime.data && topAnime.data.length > 0) {
+    getTopAnime: (topAnime, setHomeImage,index) => {
+        if (topAnime && topAnime.length > 0) {
             if(setHomeImage){
-                setHomeImage(topAnime.data[0].images.webp.large_image_url);
+                setHomeImage(topAnime[index].images.webp.large_image_url);
             }
         }
 
