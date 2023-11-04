@@ -7,9 +7,9 @@ import useWindowResize from "../../hooks/useWindowResize";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
 
-const MovieBackscreen = ({ topAnime, index }) => {
+const MovieBackscreen = ({ bestRetedAnime, index }) => {
     const { isFullWidth } = useWindowResize(885);
-    const anime = topAnime[index];
+    const anime = bestRetedAnime[index];
 
     return anime ? (
         <div className="movie-backscreen" key={anime.mal_id}>

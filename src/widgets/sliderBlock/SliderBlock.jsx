@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
-import Slider from "../../features/slider/Slider";
 import { FaArrowRotateLeft } from "react-icons/fa6";
-
-const SliderBlock = ({ topAnime, title, topRecomended }) => {
+import Slider from "../../features/slider/Slider";
+const SliderBlock = ({ bestRetedAnime, title, topRecomended }) => {
     const swiperRef = useRef(null);
     const goToFirstSlide = () => {
         if (swiperRef.current) {
@@ -15,7 +14,7 @@ const SliderBlock = ({ topAnime, title, topRecomended }) => {
                 <h2 className="slider-block-title">{title}</h2>
                 <FaArrowRotateLeft onClick={goToFirstSlide} />
             </div>
-            {topAnime ? <Slider topAnime={topAnime} swiperRef={swiperRef} /> : null}
+            {bestRetedAnime ? <Slider bestRetedAnime={bestRetedAnime} swiperRef={swiperRef} /> : null}
             {topRecomended ? (
                 <Slider topRecomended={topRecomended} swiperRef={swiperRef} />
             ) : null}

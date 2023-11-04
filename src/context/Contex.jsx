@@ -1,25 +1,35 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getAnime } from "../servises/axiosRequests";
-import { topAnimeUrl, animeRecomendationsUrl, schedulesUrl } from "../servises/api";
+import {
+    bestRetedURL,
+    animeRecomendationsURL,
+    fallSeasonsURL,
+    schedulesURL,
+} from "../servises/api";
+import { addToQueue } from "../servises/axiosRequests";
 
 export const DataContext = createContext();
 
 const Context = ({ children }) => {
-    const [topAnime, setTopAnime] = useState([]);
+    const [bestRetedAnime, setBestRatedAnime] = useState([]);
     const [topRecomended, setTopRecomended] = useState([]);
-    const [scheduledAnime, setSchediledAnime] = useState([]);
-    
+    const [fallAnimeSeasons, setFallAnimeSeasons] = useState([]);
+    const [scheduledAnime, setScheduledAnime] = useState([])
     useEffect(() => {
-        getAnime(topAnimeUrl, setTopAnime);
-        getAnime(animeRecomendationsUrl, setTopRecomended);
-        getAnime(schedulesUrl, setSchediledAnime);
+        addToQueue(bestRetedURL, setBestRatedAnime, 19);
+        addToQueue(animeRecomendationsURL, setTopRecomended, 19);
+        addToQueue(schedulesURL, setScheduledAnime, 19);
+        setTimeout(() => {
+            addToQueue(fallSeasonsURL, setFallAnimeSeasons, 19);
+        }, 1001);
     }, []);
+
     return (
         <DataContext.Provider
             value={{
-                topAnime: topAnime,
-                topRecomended: topRecomended,
                 scheduledAnime: scheduledAnime,
+                topRecomended: topRecomended,
+                bestRetedAnime: bestRetedAnime,
+                fallAnimeSeasons: fallAnimeSeasons,
             }}>
             {children}
         </DataContext.Provider>

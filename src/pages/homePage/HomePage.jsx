@@ -5,22 +5,29 @@ import MovieBackscreen from "../../widgets/movieModal/MovieBackscreen";
 import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { DataContext } from "../../context/Contex";
 import { animeServices } from "../../servises/animeServices";
-import SliderBlock from "../../widgets/sliderBlock/SliderBlock";
 import { getRandomNum } from "../../helpers/helpers";
+import SliderBlock from "../../widgets/sliderBlock/SliderBlock";
 
 const HomePage = () => {
     const animeContext = useContext(DataContext);
     const [randomIndex, setRandomIndex] = useState(0);
     const [homeImage, setHomeImage] = useState(homeHeaderImg);
-    
+
     useEffect(() => {
-        setRandomIndex(getRandomNum(0, animeContext.topAnime.length));
-    }, [animeContext.topAnime]);
-    
+        setRandomIndex(getRandomNum(0, animeContext.bestRetedAnime.length));
+    }, [animeContext.bestRetedAnime]);
+
     useEffect(() => {
-        animeServices.getTopAnime(animeContext.topAnime, setHomeImage, randomIndex);
-    }, [animeContext.topAnime, randomIndex]);
-    console.log(animeContext);
+        animeServices.getTopAnime(animeContext.bestRetedAnime, setHomeImage, randomIndex);
+    }, [animeContext.bestRetedAnime, randomIndex]);
+
+    const sliderData = [
+        { title: "Scheduled", data: animeContext.scheduledAnime },
+        { title: "Recomended", data: animeContext.topRecomended },
+        { title: "Best rated", data: animeContext.bestRetedAnime },
+        { title: "New", data: animeContext.fallAnimeSeasons },
+    ];
+
     return (
         <DefaultLayout>
             <div className="home">
@@ -33,17 +40,23 @@ const HomePage = () => {
                     <div className="home__header-blur"></div>
                     <Header />
                     <MovieBackscreen
-                        topAnime={animeContext.topAnime}
+                        bestRetedAnime={animeContext.bestRetedAnime}
                         index={randomIndex}
                     />
                 </div>
-                <SliderBlock title={"Popular"} topAnime={animeContext.topAnime} />
-                <SliderBlock
-                    title={"Recomended"}
-                    topRecomended={animeContext.topRecomended}
-                />
-                <SliderBlock title={"Best rated"} topAnime={animeContext.topAnime} />
-                <SliderBlock title={"New"} topAnime={animeContext.scheduledAnime} />
+
+                {sliderData.map((item, index) => (
+                    <SliderBlock
+                        key={index}
+                        title={item.title}
+                        topRecomended={
+                            item.data === animeContext.topRecomended ? item.data : null
+                        }
+                        bestRetedAnime={
+                            item.data !== animeContext.topRecomended ? item.data : null
+                        }
+                    />
+                ))}
             </div>
         </DefaultLayout>
     );
