@@ -15,7 +15,6 @@ const registration  = async (userData) => {
             const auth = getAuth(app);
             const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
             const user = userCredential.user;
-            console.log(user);
             try {
                 await updateProfile(user, {
                   displayName: userData.username,

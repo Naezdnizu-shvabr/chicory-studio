@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DefaultTitle from "../../shared/default/defaultTitle/DefaultTitle";
 import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyText";
 import DefaultText from "../../shared/default/defaultText/DefaultText";

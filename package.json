@@ -21,6 +21,8 @@
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-smooth-scrolling": "^1.0.2",
     "sass": "^1.69.4",
     "styled-components": "^6.1.0",
     "swiper": "^11.0.3",

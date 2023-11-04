@@ -6,7 +6,6 @@ import CardTitle from "../card/ui/CardTitle";
 import CardDate from "../card/ui/CardDate";
 const CardPopular = ({ topAnime }) => {
     const duration = topAnime.duration.slice(0, topAnime.duration.indexOf("per")-1);
-    console.log(topAnime);
     return (
         <div className="card">
             <img
