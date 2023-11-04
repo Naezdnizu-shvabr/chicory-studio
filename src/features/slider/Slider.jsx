@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
-import CardRecomended from "../../shared/cardRecomended/CardRecomended";
 import useWindowResize from "../../hooks/useWindowResize";
 import { Skeleton } from "@mui/material";
 import Card from "../../shared/card/Card";
@@ -21,8 +20,6 @@ const Slider = ({ anime, topRecomended, title }) => {
     };
     const handleSlideChange = (swiper) => {
         setSliderPosition(swiper.realIndex);
-    console.log(sliderPosition)
-
     };
     useEffect(() => {
         (anime && anime.length > 0) || (topRecomended && topRecomended.length > 0)
@@ -51,9 +48,7 @@ const Slider = ({ anime, topRecomended, title }) => {
                 className="main-swiper slider"
                 spaceBetween={20}
                 slidesPerView={slidesPerView}
-                onSlideChange={handleSlideChange}
-                
-                >
+                onSlideChange={handleSlideChange}>
                 {dataLoaded
                     ? anime && anime.length > 0
                         ? anime.map((anime, index) => (
@@ -61,11 +56,7 @@ const Slider = ({ anime, topRecomended, title }) => {
                                   <Card anime={anime} />
                               </SwiperSlide>
                           ))
-                        : topRecomended.map((anime, index) => (
-                              <SwiperSlide key={index}>
-                                  <CardRecomended topRecomended={anime} />
-                              </SwiperSlide>
-                          ))
+                        : null
                     : skeletonSlides}
             </Swiper>
         </>

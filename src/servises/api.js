@@ -1,6 +1,6 @@
 const api = {
     bestRetedURL: "https://api.jikan.moe/v4/top/anime",
-    animeRecomendationsURL: "https://api.jikan.moe/v4/recommendations/anime",
+    upcomingAnimeURL: "https://api.jikan.moe/v4/seasons/upcoming",
     schedulesURL: "https://api.jikan.moe/v4/schedules?page=6",
     fallSeasonsURL: "https://api.jikan.moe/v4/seasons/2023/fall",
     randomAnimeURL: "https://api.jikan.moe/v4/random/anime",
@@ -9,7 +9,7 @@ const api = {
 
 export const {
     bestRetedURL,
-    animeRecomendationsURL,
+    upcomingAnimeURL,
     schedulesURL,
     fallSeasonsURL,
     randomAnimeURL,

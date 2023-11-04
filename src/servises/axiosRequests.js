@@ -14,14 +14,14 @@ const axiosRequests = {
                 }
             })
             .catch((error) => {
-                alert("Too many requests: " + error);
+                alert("Do not reload page too fast");
             });
     },
     processQueue: () => {
         if (queue.length > 0) {
             const item = queue.shift();
             axiosRequests.getAnime(item.url, item.setter);
-            setTimeout(axiosRequests.processQueue, 1000 / 3);
+            setTimeout(axiosRequests.processQueue, 1000);
         }
     },
     addToQueue: (url, setter) => {
@@ -32,4 +32,4 @@ const axiosRequests = {
     },
 };
 
-export const { getAnime, processQueue, addToQueue } = axiosRequests;
+export const { addToQueue } = axiosRequests;

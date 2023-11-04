@@ -1,32 +1,32 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
     bestRetedURL,
-    animeRecomendationsURL,
+    upcomingAnimeURL,
     fallSeasonsURL,
     schedulesURL,
 } from "../servises/api";
 import { addToQueue } from "../servises/axiosRequests";
 import homeHeaderImg from "../assets/img/home-header-img.png";
 import { animeServices } from "../servises/animeServices";
-import { getRandomNum } from '../helpers/helpers'
+import { getRandomNum } from "../helpers/helpers";
 
 export const DataContext = createContext();
 
 const Context = ({ children }) => {
     const [bestRetedAnime, setBestRatedAnime] = useState([]);
-    const [topRecomended, setTopRecomended] = useState([]);
+    const [upcomingAnime, setUpcomingAnime] = useState([]);
     const [fallAnimeSeasons, setFallAnimeSeasons] = useState([]);
-    const [scheduledAnime, setScheduledAnime] = useState([])
+    const [scheduledAnime, setScheduledAnime] = useState([]);
     const [randomIndex, setRandomIndex] = useState(0);
     const [homeImage, setHomeImage] = useState(homeHeaderImg);
 
     useEffect(() => {
+        addToQueue(upcomingAnimeURL, setUpcomingAnime, 19);
         addToQueue(bestRetedURL, setBestRatedAnime, 19);
-        addToQueue(animeRecomendationsURL, setTopRecomended, 19);
-        addToQueue(schedulesURL, setScheduledAnime, 19);
+        addToQueue(fallSeasonsURL, setFallAnimeSeasons, 19);
         setTimeout(() => {
-            addToQueue(fallSeasonsURL, setFallAnimeSeasons, 19);
-        }, 1001);
+            addToQueue(schedulesURL, setScheduledAnime, 19);
+        }, 1500);
     }, []);
 
     const updateRandomIndexAndImage = () => {
@@ -34,12 +34,12 @@ const Context = ({ children }) => {
         setRandomIndex(newIndex);
         animeServices.getTopAnime(bestRetedAnime, setHomeImage, newIndex);
     };
-
+    console.log(upcomingAnime);
     return (
         <DataContext.Provider
             value={{
                 scheduledAnime: scheduledAnime,
-                topRecomended: topRecomended,
+                upcomingAnime: upcomingAnime,
                 bestRetedAnime: bestRetedAnime,
                 fallAnimeSeasons: fallAnimeSeasons,
                 randomIndex: randomIndex,
