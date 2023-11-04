@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
 import CardRecomended from "../../shared/cardRecomended/CardRecomended";
-import CardPopular from "../../shared/cardPopular/CardPopular";
 import useWindowResize from "../../hooks/useWindowResize";
 import { Skeleton } from "@mui/material";
+import Card from "../../shared/card/Card";
 
 const Slider = ({ bestRetedAnime, topRecomended, swiperRef }) => {
     const { slidesPerView } = useWindowResize();
@@ -33,7 +33,7 @@ const Slider = ({ bestRetedAnime, topRecomended, swiperRef }) => {
                 ? bestRetedAnime && bestRetedAnime.length > 0
                     ? bestRetedAnime.map((anime, index) => (
                           <SwiperSlide key={index}>
-                              <CardPopular bestRetedAnime={anime} />
+                              <Card bestRetedAnime={anime} />
                           </SwiperSlide>
                       ))
                     : topRecomended.map((anime, index) => (

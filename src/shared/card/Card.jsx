@@ -1,10 +1,10 @@
 import React from "react";
 import previewImg from "../../assets/img/74fcdac8b3b0094a437b15bc54389849.webp";
-import CardGenre from "../card/ui/CardGenre";
-import CardScoreLine from "../card/ui/CardScoreLine";
-import CardTitle from "../card/ui/CardTitle";
-import CardDate from "../card/ui/CardDate";
-const CardPopular = ({ bestRetedAnime }) => {
+import CardGenre from "./ui/CardGenre";
+import CardScoreLine from "./ui/CardScoreLine";
+import CardTitle from "./ui/CardTitle";
+import CardDate from "./ui/CardDate";
+const Card = ({ bestRetedAnime }) => {
     const duration = bestRetedAnime.duration.slice(
         0,
         bestRetedAnime.duration.indexOf("per") - 1
@@ -32,4 +32,4 @@ const CardPopular = ({ bestRetedAnime }) => {
     );
 };
 
-export default CardPopular;
+export default Card;
