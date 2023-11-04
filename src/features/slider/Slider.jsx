@@ -6,16 +6,18 @@ import CardRecomended from "../../shared/cardRecomended/CardRecomended";
 import useWindowResize from "../../hooks/useWindowResize";
 import { Skeleton } from "@mui/material";
 import Card from "../../shared/card/Card";
+import SliderTitle from "../../shared/slider/SliderTitle";
 
-const Slider = ({ bestRetedAnime, topRecomended, swiperRef }) => {
+const Slider = ({ anime, topRecomended, swiperRef, title, goToFirstSlide }) => {
     const { slidesPerView } = useWindowResize();
     const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
-        (bestRetedAnime && bestRetedAnime.length > 0) || (topRecomended && topRecomended.length > 0)
+        (anime && anime.length > 0) ||
+        (topRecomended && topRecomended.length > 0)
             ? setDataLoaded(true)
             : setDataLoaded(false);
-    }, [bestRetedAnime, topRecomended]);
+    }, [anime, topRecomended]);
 
     const skeletonSlides = Array.from({ length: slidesPerView }).map((_, index) => (
         <SwiperSlide key={index}>
@@ -23,26 +25,29 @@ const Slider = ({ bestRetedAnime, topRecomended, swiperRef }) => {
         </SwiperSlide>
     ));
     return (
-        <Swiper
-            ref={swiperRef}
-            modules={[A11y]}
-            className="main-swiper slider"
-            spaceBetween={20}
-            slidesPerView={slidesPerView}>
-            {dataLoaded
-                ? bestRetedAnime && bestRetedAnime.length > 0
-                    ? bestRetedAnime.map((anime, index) => (
-                          <SwiperSlide key={index}>
-                              <Card bestRetedAnime={anime} />
-                          </SwiperSlide>
-                      ))
-                    : topRecomended.map((anime, index) => (
-                          <SwiperSlide key={index}>
-                              <CardRecomended topRecomended={anime} />
-                          </SwiperSlide>
-                      ))
-                : skeletonSlides}
-        </Swiper>
+        <>
+            <SliderTitle title={title} goToFirstSlide={goToFirstSlide} />
+            <Swiper
+                ref={swiperRef}
+                modules={[A11y]}
+                className="main-swiper slider"
+                spaceBetween={20}
+                slidesPerView={slidesPerView}>
+                {dataLoaded
+                    ? anime && anime.length > 0
+                        ? anime.map((anime, index) => (
+                              <SwiperSlide key={index}>
+                                  <Card anime={anime} />
+                              </SwiperSlide>
+                          ))
+                        : topRecomended.map((anime, index) => (
+                              <SwiperSlide key={index}>
+                                  <CardRecomended topRecomended={anime} />
+                              </SwiperSlide>
+                          ))
+                    : skeletonSlides}
+            </Swiper>
+        </>
     );
 };
 

@@ -4,29 +4,29 @@ import CardGenre from "./ui/CardGenre";
 import CardScoreLine from "./ui/CardScoreLine";
 import CardTitle from "./ui/CardTitle";
 import CardDate from "./ui/CardDate";
-const Card = ({ bestRetedAnime }) => {
-    const duration = bestRetedAnime.duration.slice(
+const Card = ({ anime }) => {
+    const duration = anime.duration.slice(
         0,
-        bestRetedAnime.duration.indexOf("per") - 1
+        anime.duration.indexOf("per") - 1
     );
     return (
         <div className="card">
             <img
-                src={bestRetedAnime ? bestRetedAnime.images.webp.image_url : previewImg}
+                src={anime ? anime.images.webp.image_url : previewImg}
                 alt=""
                 className="card__img"
             />
             <div className="card__item-data">
-                <CardGenre genres={bestRetedAnime.genres.slice(0, 3)} />
-                <CardTitle title={bestRetedAnime.title} />
+                <CardGenre genres={anime.genres.slice(0, 3)} />
+                <CardTitle title={anime.title} />
                 <CardDate
                     date={{
-                        from: bestRetedAnime.aired.prop.from.year,
+                        from: anime.aired.prop.from.year,
                         duration: duration,
-                        episodes: bestRetedAnime.episodes,
+                        episodes: anime.episodes,
                     }}
                 />
-                <CardScoreLine score={bestRetedAnime.score} />
+                <CardScoreLine score={anime.score} />
             </div>
         </div>
     );

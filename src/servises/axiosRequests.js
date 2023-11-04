@@ -14,7 +14,7 @@ const axiosRequests = {
                 }
             })
             .catch((error) => {
-                alert(error);
+                alert("Too many requests: " + error);
             });
     },
     processQueue: () => {
