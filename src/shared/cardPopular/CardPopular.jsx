@@ -5,7 +5,10 @@ import CardScoreLine from "../card/ui/CardScoreLine";
 import CardTitle from "../card/ui/CardTitle";
 import CardDate from "../card/ui/CardDate";
 const CardPopular = ({ bestRetedAnime }) => {
-    const duration = bestRetedAnime.duration.slice(0, bestRetedAnime.duration.indexOf("per")-1);
+    const duration = bestRetedAnime.duration.slice(
+        0,
+        bestRetedAnime.duration.indexOf("per") - 1
+    );
     return (
         <div className="card">
             <img
