@@ -8,8 +8,8 @@ const signInWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, provider);
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
+        // const token = credential.accessToken;
+        // const user = result.user;
         console.log('User registered successfully');
     } catch (error) {
             const errorCode = error.code;

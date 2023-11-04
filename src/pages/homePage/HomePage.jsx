@@ -20,7 +20,7 @@ const HomePage = () => {
     useEffect(() => {
         animeServices.getTopAnime(animeContext.topAnime, setHomeImage, randomIndex);
     }, [animeContext.topAnime, randomIndex]);
-
+    console.log(animeContext);
     return (
         <DefaultLayout>
             <div className="home">
@@ -43,7 +43,7 @@ const HomePage = () => {
                     topRecomended={animeContext.topRecomended}
                 />
                 <SliderBlock title={"Best rated"} topAnime={animeContext.topAnime} />
-                <SliderBlock title={"New"} topAnime={animeContext.topAnime} />
+                <SliderBlock title={"New"} topAnime={animeContext.scheduledAnime} />
             </div>
         </DefaultLayout>
     );

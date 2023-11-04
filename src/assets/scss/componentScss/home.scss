@@ -1,35 +1,32 @@
 @import "./../mixins";
 @import "./../variables";
 
-.home{
-  width: 100%;
-  // padding-top: 400px;
-  position: relative;
-  &__header{
-    // padding: 20px 0;
-    position: relative;
-    top: 0;
+.home {
     width: 100%;
-    max-width: 1150px;
-    // background: $secondary-color;
-    &-img{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      object-fit: cover;
+    position: relative;
+    &__header {
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-width: 1150px;
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+        &-blur {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #2d2d2d;
+            opacity: 0.9;
+            z-index: -1;
+        }
     }
-    &-blur{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: #2D2D2D;
-      opacity: 0.9;
-      z-index: -1;
-    }
-  }
 }

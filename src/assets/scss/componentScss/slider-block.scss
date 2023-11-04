@@ -19,7 +19,24 @@
 
 
     
-    &__title{
+    &__title {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 30px;
+        svg {
+            width: 20px;
+            height: 20px;
+            path {
+                fill: white;
+            }
+            transition: transform ease-in-out 0.5s;
+            &:hover {
+                transform: rotate(-360deg);
+            }
+        }
+    }
+    &-title{
         font-size: 32px;
         color: $contrast-color;
     }

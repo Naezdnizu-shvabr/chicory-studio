@@ -6,10 +6,11 @@ import CardRecomended from "../../shared/cardRecomended/CardRecomended";
 import CardPopular from "../../shared/cardPopular/CardPopular";
 import useWindowResize from "../../hooks/useWindowResize";
 
-const Slider = ({ topAnime, topRecomended }) => {
+const Slider = ({ topAnime, topRecomended,swiperRef }) => {
     const { slidesPerView } = useWindowResize();
     return (
         <Swiper
+            ref={swiperRef}
             modules={[A11y]}
             className="main-swiper slider"
             spaceBetween={20}

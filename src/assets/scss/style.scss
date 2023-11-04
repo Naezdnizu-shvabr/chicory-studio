@@ -18,11 +18,7 @@
 }
 
 //temp option
-html,body{
-    overscroll-behavior: contain;
-}
 body{
-    // overscroll-behavior-y: none;
     -webkit-tap-highlight-color: transparent;
     background: #2B2B2B;
     overflow-x: hidden;
