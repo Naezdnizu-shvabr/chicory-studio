@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { getSwiperSlideConfig } from "../entities/slider/config/swiperConfig";
 
-const useWindowResize = () => {
+const useWindowResize = (width) => {
     const [slidesPerView, setSlidesPerView] = useState(3.1);
     const [isFullWidth, setIsFullWidth] = useState(false);
 
     const handleResize = () => {
         const newWidth = window.innerWidth;
         setSlidesPerView(getSwiperSlideConfig(newWidth));
-        setIsFullWidth(newWidth <= 885);
+        setIsFullWidth(newWidth <= width);
+
     };
 
     useEffect(() => {
