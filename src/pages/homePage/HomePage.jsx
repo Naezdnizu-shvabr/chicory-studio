@@ -12,11 +12,11 @@ const HomePage = () => {
     const animeContext = useContext(DataContext);
     const [randomIndex, setRandomIndex] = useState(0);
     const [homeImage, setHomeImage] = useState(homeHeaderImg);
-    
+
     useEffect(() => {
         setRandomIndex(getRandomNum(0, animeContext.topAnime.length));
     }, [animeContext.topAnime]);
-    
+
     useEffect(() => {
         animeServices.getTopAnime(animeContext.topAnime, setHomeImage, randomIndex);
     }, [animeContext.topAnime, randomIndex]);
@@ -31,7 +31,7 @@ const HomePage = () => {
                         alt="home-header-img"
                     />
                     <div className="home__header-blur"></div>
-                    <Header />
+                    <Header showNavigation={true} />
                     <MovieBackscreen
                         topAnime={animeContext.topAnime}
                         index={randomIndex}
