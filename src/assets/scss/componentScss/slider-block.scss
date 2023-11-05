@@ -1,29 +1,44 @@
 @import "../mixins";
 @import "../variables";
 
-.slider-block{
+.slider-block {
     margin-top: 30px;
     padding-left: 20px;
-   
-//DELETE if one or more slider blocks needed
+
+    //DELETE if one or more slider blocks needed
     position: relative;
-    &:nth-child(3){
+    &:nth-child(3) {
         top: -56px;
     }
-    &:nth-child(4){
+    &:nth-child(4) {
         top: -112px;
     }
-    &:nth-child(5){
+    &:nth-child(5) {
         top: -168px;
     }
 
-
-    
-    &__title{
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        svg {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            path {
+                fill: white;
+            }
+            transition: transform ease-in-out 0.5s;
+            &:hover {
+                transform: rotate(-360deg);
+            }
+        }
+    }
+    &-title {
         font-size: 32px;
         color: $contrast-color;
     }
-    @media screen and (max-width:530px) {
+    @media screen and (max-width: 530px) {
         padding-right: 20px;
     }
 }

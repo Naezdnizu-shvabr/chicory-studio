@@ -1,7 +1,7 @@
 const helpers = {
-    getRandomNum : (min, max)=>{
+    getRandomNum: (min, max) => {
         return Math.floor(Math.random() * (max - min) + min);
     },
-}
+};
 
-export const {getRandomNum} = helpers;
+export const { getRandomNum } = helpers;

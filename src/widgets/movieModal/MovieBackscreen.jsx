@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import DefaultTitle from "../../shared/default/defaultTitle/DefaultTitle";
 import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyText";
 import DefaultText from "../../shared/default/defaultText/DefaultText";
@@ -6,10 +6,16 @@ import { animeServices } from "../../servises/animeServices";
 import useWindowResize from "../../hooks/useWindowResize";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
+import { DataContext } from "../../context/Contex";
 
-const MovieBackscreen = ({ topAnime, index }) => {
+const MovieBackscreen = () => {
+    const animeContext = useContext(DataContext);
     const { isFullWidth } = useWindowResize(885);
-    const anime = topAnime[index];
+    const anime = animeContext.bestRetedAnime[animeContext.randomIndex];
+
+    useEffect(() => {
+        animeContext.updateRandomIndexAndImage();
+    }, [animeContext.bestRetedAnime]);
 
     return anime ? (
         <div className="movie-backscreen" key={anime.mal_id}>
