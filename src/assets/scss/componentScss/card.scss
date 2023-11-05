@@ -84,30 +84,30 @@
         opacity: 0;
         position: absolute;
         right: 0px;
-        width: 0;
+        width: 125px;
         bottom: 30px;
         overflow: hidden;
         background-color: $primary-color;
-        transition: opacity 0.3s ease-out,width 0.3s ease-out;
-        &_active{
-            width: 125px;
+        transition: opacity 0.2s ease-out, scale 0.2s ease-out;
+        scale: 0;
+
+        &_active {
+            scale: 1;
             opacity: 1;
             z-index: 2;
-            overflow: visible;
-
         }
     }
     &__my-anime-list {
-        svg{
-        transition: scale ease-in-out 0.2s;
-            &:hover{
-                scale: 1.2;
-            }
-        }
         position: relative;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        svg {
+            transition: scale ease-in-out 0.2s;
+            &:hover {
+                scale: 1.2;
+            }
+        }
     }
 
     &__anime-list {
@@ -116,14 +116,6 @@
         height: 100%;
         justify-content: flex-end;
         align-items: flex-end;
-        // justify-content: space-between;
-        // align-items: center;
-        // &-title {
-        //     color: $primary-color;
-        // }
-        // &-link {
-        //     color: $primary-color;
-        // }
     }
     @media screen and (max-width: 530px) {
         height: 295px;
