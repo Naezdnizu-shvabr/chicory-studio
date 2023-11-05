@@ -9,9 +9,12 @@
     height: 210px;
     border-radius: 8px;
     transition: all ease 0.4s;
-
     //DELETE if one or more slider blocks needed
     &:hover {
+        box-shadow: 16px 19px 20px -8px rgba(0,0,0,0.35);
+-webkit-box-shadow: 16px 19px 20px -8px rgba(0,0,0,0.35);
+-moz-box-shadow: 16px 19px 20px -8px rgba(0,0,0,0.35);
+
         height: 295px;
         cursor: grab;
         .card__img {

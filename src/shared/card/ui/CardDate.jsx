@@ -6,7 +6,7 @@ const CardDate = ({ date }) => {
             <div className="card__date">
                 {date.from ? `${date.from}. ` : ""}
                 {date.duration ? `${date.duration}. ` : ""}
-                {date.episodes ? `${date.episodes} ep's"` : ""}
+                {date.episodes ? `${date.episodes} ep's` : ""}
             </div>
         </>
     );
