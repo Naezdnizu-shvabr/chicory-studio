@@ -53,11 +53,7 @@ const Slider = ({ anime, title }) => {
                     ? anime && anime.length > 0
                         ? anime.map((anime, index) => (
                               <SwiperSlide key={index}>
-                                  <Card
-                                      anime={anime}
-                                      animeID={anime.mal_id}
-                                      
-                                  />
+                                  <Card anime={anime} animeID={anime.mal_id} />
                               </SwiperSlide>
                           ))
                         : null

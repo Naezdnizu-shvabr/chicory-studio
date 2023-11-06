@@ -7,7 +7,7 @@ import CardDate from "./ui/CardDate";
 import { Link } from "react-router-dom";
 import { TbExternalLink } from "react-icons/tb";
 import { DataContext } from "../../context/Contex";
-const Card = ({ anime, selectedCardId, setSelectedCardId }) => {
+const Card = ({ anime }) => {
     const animeContext = useContext(DataContext);
     const [tooltip, setTooltip] = useState(false);
     const duration = anime.duration.slice(0, anime.duration.indexOf("per") - 1);

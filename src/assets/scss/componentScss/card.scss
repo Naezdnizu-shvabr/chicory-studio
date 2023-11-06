@@ -9,7 +9,7 @@
     height: 216px;
     border-radius: 8px;
     border: 3px solid transparent;
-    transition: height ease 0.4s, width 0.4s, box-shadow ease 0.4s, border-color ease 0.2s;
+    transition: height ease 0.4s, width 0.4s, box-shadow ease 0.4s, border-color ease 0.3s;
     &_selected {
         border-color: $secondary-color-opacity;
     }
