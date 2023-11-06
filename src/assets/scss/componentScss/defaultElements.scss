@@ -3,16 +3,16 @@
 
 .default{
     &-text{
-        color: $contrast-color;
+        color: var(--contrast-color);
         @include adaptive-font(24,17);
         
     }
     &-title{
-        color: $contrast-color;
+        color: var(--contrast-color);
         @include adaptive-font(36,32);
     }
     &-grey-text{
-        color: $primary-color;
+        color: var(--primary-color);
         @include adaptive-font(24,17);
     }
 }

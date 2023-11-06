@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: $primary-color-dark;
+  background: var(--primary-color-dark);
   padding: 50px 26px;
 
   &__nav {
@@ -21,36 +21,17 @@
       align-items: center;
       flex-direction: column;
       cursor: pointer;
-    }
-    &-img {
+      color: var(--primary-color);
+      svg{
         width: 20px;
-      svg {
-        path {
-          fill: $primary-color;
-        }
+        height: 20px;
+        color: var(--primary-color);
       }
     }
-    svg {
-      path {
-        fill: $primary-color;
-      }
-    }
-  }
-
-  img {
-    width: 20px;
-
-  }
-
-
-
-  div {
-    margin-top: 10px;
-    color: #8C8C8C;
   }
 
   &__title {
-    color: white;
+    color: var(--contrast-color);
     font-size: 24px;
     width: 78px;
     height: 24px;
@@ -60,11 +41,10 @@
     align-items: center;
   }
 
-
   &__line {
     width: 100%;
     height: 1px;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     margin-bottom: 20px;
     display: block;
   }

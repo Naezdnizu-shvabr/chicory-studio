@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Links = ({ item }) => {
     return (
         <Link to={item.to} className="menu__nav-link">
-            <img className="menu__nav-img" src={item.img} alt={item.img} />
+            <div>{item.img}</div>
             <div className="menu__nav-name">{item.name}</div>
         </Link>
     );
