@@ -23,7 +23,7 @@ const MovieBackscreen = () => {
             <div className="movie-backscreen__title">
                 <DefaultTitle title={currentAnime.title} animeID={currentAnime.mal_id} />
 
-                <Link to={`anime/${currentAnime.mal_id}/`}>
+                <Link to={`anime/${currentAnime.mal_id}`}>
                     <FiExternalLink style={{ fontSize: "30px" }} stroke="white" />
                 </Link>
             </div>

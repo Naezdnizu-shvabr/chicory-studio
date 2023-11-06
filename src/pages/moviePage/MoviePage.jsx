@@ -5,9 +5,9 @@ import MovieHeader from "../../widgets/contentMovie/MovieHeader";
 import { DataContext } from "../../context/Contex";
 import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { getRandomNum } from "../../helpers/helpers";
-import { animeServices } from "../../servises/animeServices";
 import { useParams } from "react-router-dom";
 import MovieSlider from "../../widgets/movieSlider/MovieSlider";
+import {getAnime} from "../../servises/animeServices";
 
 const MoviePage = () => {
     const { id } = useParams();
@@ -19,12 +19,13 @@ const MoviePage = () => {
         setRandomIndex(getRandomNum(0, animeContext.topAnime.length));
     }, [animeContext.topAnime]);
 
-    useEffect(() => {
-        animeServices.getTopAnime(animeContext.topAnime, setHomeImage, randomIndex);
-    }, [animeContext.topAnime, randomIndex]);
+     // useEffect(() => {
+     //     animeContext.getAnime(animeContext.animeToShow || animeContext.anime, setHomeImage, animeContext.newIndex);
+     //    }, []);
 
-    const img = animeContext.topAnime.filter((res) => res.mal_id === Number(id));
-    console.log(img);
+    // const img = animeContext.upcomingAnime.filter((res) => res.mal_id === Number(id));
+    console.log(animeContext.anime);
+
     return (
         <DefaultLayout>
             <Header showNavigation={false} />
