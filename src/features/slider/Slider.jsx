@@ -7,11 +7,12 @@ import { Skeleton } from "@mui/material";
 import Card from "../../shared/card/Card";
 import SliderTitle from "../../shared/slider/SliderTitle";
 
-const Slider = ({ anime, topRecomended, title }) => {
+const Slider = ({ anime, title }) => {
     const { slidesPerView } = useWindowResize();
     const swiperRef = useRef(null);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [sliderPosition, setSliderPosition] = useState(0);
+
     const goToFirstSlide = () => {
         if (swiperRef.current) {
             swiperRef.current.swiper.slideTo(0, 1000, false);
@@ -21,14 +22,13 @@ const Slider = ({ anime, topRecomended, title }) => {
     const handleSlideChange = (swiper) => {
         setSliderPosition(swiper.realIndex);
     };
+
     useEffect(() => {
-        (anime && anime.length > 0) || (topRecomended && topRecomended.length > 0)
-            ? setDataLoaded(true)
-            : setDataLoaded(false);
+        anime && anime.length > 0 ? setDataLoaded(true) : setDataLoaded(false);
         if (swiperRef.current) {
             setSliderPosition(swiperRef.current.swiper.realIndex);
         }
-    }, [anime, topRecomended]);
+    }, [anime]);
 
     const skeletonSlides = Array.from({ length: slidesPerView }).map((_, index) => (
         <SwiperSlide key={index}>
@@ -53,7 +53,7 @@ const Slider = ({ anime, topRecomended, title }) => {
                     ? anime && anime.length > 0
                         ? anime.map((anime, index) => (
                               <SwiperSlide key={index}>
-                                  <Card anime={anime} />
+                                  <Card anime={anime} animeID={anime.mal_id} />
                               </SwiperSlide>
                           ))
                         : null

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import previewImg from "../../assets/img/74fcdac8b3b0094a437b15bc54389849.webp";
 import CardGenre from "./ui/CardGenre";
 import CardScoreLine from "./ui/CardScoreLine";
@@ -6,27 +6,36 @@ import CardTitle from "./ui/CardTitle";
 import CardDate from "./ui/CardDate";
 import { Link } from "react-router-dom";
 import { TbExternalLink } from "react-icons/tb";
+import { DataContext } from "../../context/Contex";
 const Card = ({ anime }) => {
+    const animeContext = useContext(DataContext);
     const [tooltip, setTooltip] = useState(false);
-    const [mouseLeft, setMouseLeft] = useState(false);
     const duration = anime.duration.slice(0, anime.duration.indexOf("per") - 1);
-    const handleMouseEnter = () => {
-        if (!tooltip) {
-            setTimeout(() => {
-                if (!mouseLeft) {
-                    setTooltip(true);
-                }
-            }, 500);
-        }
+
+    let tooltipTimeout;
+
+    const handleTooltipEnter = () => {
+        tooltipTimeout = setTimeout(() => {
+            setTooltip(true);
+        }, 500);
     };
 
-    const handleMouseLeave = () => {
-        setMouseLeft(false); 
+    const handleTooltipLeave = () => {
+        clearTimeout(tooltipTimeout);
         setTooltip(false);
+    };
+    const handleCardClick = () => {
+        animeContext.updateAnimeInfo(anime);
+        animeContext.setSelectedCardId(anime.mal_id);
     };
 
     return (
-        <div className="card">
+        <div
+            className={`card ${
+                animeContext.selectedCardId === anime.mal_id ? "card_selected" : ""
+            }`}
+            onClick={handleCardClick}
+            data-id={anime.mal_id}>
             <img
                 src={anime ? anime.images.webp.image_url : previewImg}
                 alt=""
@@ -47,9 +56,13 @@ const Card = ({ anime }) => {
                     <Link
                         to={anime.url}
                         className="card__my-anime-list"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}>
-                        <TbExternalLink style={{ fontSize: "20px" }} fill="none" stroke="#8C8C8C"/>
+                        onMouseEnter={handleTooltipEnter}
+                        onMouseLeave={handleTooltipLeave}>
+                        <TbExternalLink
+                            style={{ fontSize: "20px" }}
+                            fill="none"
+                            stroke="#8C8C8C"
+                        />
                     </Link>
                     <span
                         className={

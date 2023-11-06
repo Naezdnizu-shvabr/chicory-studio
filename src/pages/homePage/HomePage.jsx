@@ -4,23 +4,26 @@ import Header from "../../widgets/header/Header";
 import MovieBackscreen from "../../widgets/movieModal/MovieBackscreen";
 import { DataContext } from "../../context/Contex";
 import SliderBlocksContainer from "../../widgets/HomeSliderContainer/HomeSliderContainer";
+import { Element } from "react-scroll";
+import SmoothScroll from "../../shared/smoothScroll/SmoothScroll";
 
 const HomePage = () => {
     const animeContext = useContext(DataContext);
     return (
         <DefaultLayout>
             <div className="home">
-                <div className="home__header">
+                <Element id="headerAnimeInfo" className="home__header">
                     <img
                         className="home__header-img"
-                        src={animeContext.homeImage}
+                        src={animeContext.selectedAnimeImage}
                         alt="home-header-img"
                     />
                     <div className="home__header-blur"></div>
                     <Header />
                     <MovieBackscreen />
-                </div>
+                </Element>
                 <SliderBlocksContainer />
+                <SmoothScroll/>
             </div>
         </DefaultLayout>
     );
