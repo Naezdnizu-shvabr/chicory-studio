@@ -53,7 +53,6 @@ body{
         position: relative;
         max-width: 1150px;
         width: 100%;
-        height: 2067px - 168px;
     }
 }
 .card-recomended{
@@ -62,4 +61,12 @@ body{
         height: 186px;
         object-fit: cover;
     }
+}
+
+.context-spinner{
+    position: absolute;
+    width: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }

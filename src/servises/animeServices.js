@@ -1,14 +1,17 @@
 const animeServices = {
-    getTopAnime: (topAnime, setHomeImage,index) => {
-        if (topAnime && topAnime.length > 0) {
+    getAnime: (anime, setHomeImage,index) => {
+        if (anime && anime.length > 0) {
             if(setHomeImage){
-                setHomeImage(topAnime[index].images.webp.large_image_url);
+                setHomeImage(anime[index].images.webp.large_image_url);
             }
         }
 
-        return topAnime;
+        return anime;
     },
     сropText: (text, maxWords) => {
+        if (!text) {
+            return ""; 
+        }
         const words = text.split(" ");
 
         if (words.length > maxWords) {
@@ -19,4 +22,4 @@ const animeServices = {
     },
 };
 
-export { animeServices };
+export const { getAnime, сropText } = animeServices;
