@@ -1,5 +1,5 @@
-@import "./../mixins";
-@import "./../variables";
+@import "../mixins";
+@import "../variables";
 
 .movie {
   padding: 20px 0 0 20px;
@@ -38,6 +38,7 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+      margin-top: 15px;
 
       .default-grey-text {
         margin-bottom: unset;
@@ -49,4 +50,37 @@
       }
     }
   }
+
+  &__header__title-second,
+  &__header__title-main {
+    display: flex;
+    align-items: center;
+    color: $primary-color;
+
+    h3 {
+      margin-right: 5px;
+    }
+  }
+
+  &__header__title-main  {
+    margin-right: 10px;
+  }
+
+  &__header__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    &-main,
+    &-second {
+      display: flex;
+      align-items: center;
+    }
+
+    &-second {
+      margin-left: 20px;
+    }
+  }
 }
+

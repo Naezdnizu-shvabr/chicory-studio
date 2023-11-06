@@ -7,6 +7,7 @@ import homeHeaderImg from "../../assets/img/home-header-img.png";
 import { getRandomNum } from "../../helpers/helpers";
 import { animeServices } from "../../servises/animeServices";
 import { useParams } from "react-router-dom";
+import MovieSlider from "../../widgets/movieSlider/MovieSlider";
 
 const MoviePage = () => {
     const { id } = useParams();
@@ -32,6 +33,7 @@ const MoviePage = () => {
                 // style={{ backgroundImage: img[0].images.webp.large_image_url }}>
             >
                 <MovieHeader topAnime={animeContext.topAnime} index={randomIndex} />
+                <MovieSlider Block title={"Preview"} topAnime={animeContext.topAnime} />
             </div>
         </DefaultLayout>
     );

@@ -17,7 +17,9 @@ const MovieHeader = ({ topAnime, index }) => {
                 <div className="movie__header__title">
                     <div className="movie__header__title-main">
                         <DefaultTitle title={anime.title} animeID={anime.mal_id} />
-                        <PiListMagnifyingGlassThin />
+                        <PiListMagnifyingGlassThin
+                            style={{ paddingLeft: "5px", fontSize: "30px" }}
+                        />
                     </div>
                     <div className="movie__header__title-second">
                         <h3>Watching</h3>
