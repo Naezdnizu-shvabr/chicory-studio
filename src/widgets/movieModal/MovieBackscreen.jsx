@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import DefaultTitle from "../../shared/default/defaultTitle/DefaultTitle";
 import DefaultGreyText from "../../shared/default/defaultGreyText/DefaultGreyText";
 import DefaultText from "../../shared/default/defaultText/DefaultText";
-import { animeServices } from "../../servises/animeServices";
+import { сropText } from "../../servises/animeServices";
 import useWindowResize from "../../hooks/useWindowResize";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
@@ -11,37 +11,36 @@ import { DataContext } from "../../context/Contex";
 const MovieBackscreen = () => {
     const animeContext = useContext(DataContext);
     const { isFullWidth } = useWindowResize(885);
-    const anime = animeContext.bestRetedAnime[animeContext.randomIndex];
+    animeContext.setAnime(animeContext.bestRetedAnime[animeContext.randomIndex]);
+    const currentAnime = animeContext.currentAnime;
 
     useEffect(() => {
-        animeContext.updateRandomIndexAndImage();
-    }, [animeContext.bestRetedAnime]);
+        animeContext.updateRandomIndexAndImage(currentAnime);
+    }, [currentAnime]);
 
-    return anime ? (
-        <div className="movie-backscreen" key={anime.mal_id}>
+    return currentAnime ? (
+        <div className="movie-backscreen" key={currentAnime.mal_id}>
             <div className="movie-backscreen__title">
-                <DefaultTitle title={anime.title} animeID={anime.mal_id} />
+                <DefaultTitle title={currentAnime.title} animeID={currentAnime.mal_id} />
 
-                <Link to={`anime/${anime.mal_id}/`}>
+                <Link to={`anime/${currentAnime.mal_id}/`}>
                     <FiExternalLink style={{ fontSize: "30px" }} stroke="white" />
                 </Link>
             </div>
-            <DefaultGreyText text={anime.aired.string} />
-            <DefaultText
-                text={animeServices.сropText(anime.synopsis, isFullWidth ? 25 : 35)}
-            />
+            <DefaultGreyText text={currentAnime.aired?.string} />
+            <DefaultText text={сropText(currentAnime.synopsis, isFullWidth ? 25 : 35)} />
             <div className="movie-backscreen__genres">
-                <DefaultGreyText text={anime.genres[0].name} />
-                {anime.genres[1] ? (
+                <DefaultGreyText text={currentAnime?.genres[0]?.name} />
+                {currentAnime?.genres[1]?.name ? (
                     <>
                         <div className="movie-backscreen__dot"></div>
-                        <DefaultGreyText text={anime.genres[1].name} />
+                        <DefaultGreyText text={currentAnime?.genres[1]?.name} />
                     </>
                 ) : null}
-                {anime.genres[2] ? (
+                {currentAnime?.genres[2]?.name ? (
                     <>
                         <div className="movie-backscreen__dot"></div>
-                        <DefaultGreyText text={anime.genres[2].name} />
+                        <DefaultGreyText text={currentAnime?.genres[2]?.name} />
                     </>
                 ) : null}
             </div>

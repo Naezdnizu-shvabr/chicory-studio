@@ -1,7 +1,7 @@
 import React from "react";
 
 const CardTitle = ({ title }) => {
-    const maxLength = 25;
+    const maxLength = 15;
     const ellipsis = "...";
     const croppedTitle = title.substring(0, maxLength) + ellipsis;
 

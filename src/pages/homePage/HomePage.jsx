@@ -13,7 +13,7 @@ const HomePage = () => {
                 <div className="home__header">
                     <img
                         className="home__header-img"
-                        src={animeContext.homeImage}
+                        src={animeContext.selectedAnimeImage}
                         alt="home-header-img"
                     />
                     <div className="home__header-blur"></div>
