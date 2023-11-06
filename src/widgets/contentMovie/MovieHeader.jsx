@@ -5,10 +5,10 @@ import DefaultText from "../../shared/default/defaultText/DefaultText";
 import useWindowResize from "../../hooks/useWindowResize";
 import { PiListMagnifyingGlassThin } from "react-icons/pi";
 import { BsBookmarks } from "react-icons/bs";
+import { сropText } from "../../servises/animeServices";
 
-const MovieHeader = ({ topAnime, index }) => {
+const MovieHeader = ({ anime }) => {
     const { isFullWidth } = useWindowResize;
-    const anime = topAnime[index];
 
     return anime ? (
         <div className="movie__header" key={anime.mal_id}>
@@ -26,9 +26,7 @@ const MovieHeader = ({ topAnime, index }) => {
                     </div>
                 </div>
                 <DefaultGreyText text={anime.aired.string} />
-                {/*<DefaultText*/}
-                {/*    text={animeServices.сropText(anime.synopsis, isFullWidth ? 25 : 35)}*/}
-                {/*/>*/}
+                <DefaultText text={сropText(anime.synopsis, isFullWidth ? 25 : 35)} />
                 <div className="movie__header__genres">
                     <DefaultGreyText text={anime.genres[0].name} />
                     {anime.genres[1] ? (
