@@ -12,7 +12,6 @@ const Slider = ({ anime, title }) => {
     const swiperRef = useRef(null);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [sliderPosition, setSliderPosition] = useState(0);
-    const [selectedCardId, setSelectedCardId] = useState(null);
 
     const goToFirstSlide = () => {
         if (swiperRef.current) {
@@ -57,8 +56,7 @@ const Slider = ({ anime, title }) => {
                                   <Card
                                       anime={anime}
                                       animeID={anime.mal_id}
-                                      selectedCardId={selectedCardId}
-                                      setSelectedCardId={setSelectedCardId}
+                                      
                                   />
                               </SwiperSlide>
                           ))

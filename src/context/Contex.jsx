@@ -22,6 +22,7 @@ const Context = ({ children }) => {
     const [anime, setAnime] = useState();
     const [currentAnime, setCurrentAnime] = useState(null);
     const [selectedAnimeImage, setSelectedAnimeImage] = useState(homeHeaderImg);
+    const [selectedCardId, setSelectedCardId] = useState(null);
 
     useEffect(() => {
         addToQueue(upcomingAnimeURL, setUpcomingAnime, 25);
@@ -67,6 +68,8 @@ const Context = ({ children }) => {
                 currentAnime: currentAnime,
                 setCurrentAnime: setCurrentAnime,
                 selectedAnimeImage: selectedAnimeImage,
+                setSelectedCardId: setSelectedCardId,
+                selectedCardId: selectedCardId,
             }}>
             {children}
         </DataContext.Provider>

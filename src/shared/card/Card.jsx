@@ -26,13 +26,14 @@ const Card = ({ anime, selectedCardId, setSelectedCardId }) => {
     };
     const handleCardClick = () => {
         animeContext.updateAnimeInfo(anime);
-
-        setSelectedCardId(anime.mal_id);
+        animeContext.setSelectedCardId(anime.mal_id);
     };
 
     return (
         <div
-            className={`card ${selectedCardId === anime.mal_id ? "card_selected" : ""}`}
+            className={`card ${
+                animeContext.selectedCardId === anime.mal_id ? "card_selected" : ""
+            }`}
             onClick={handleCardClick}
             data-id={anime.mal_id}>
             <img
