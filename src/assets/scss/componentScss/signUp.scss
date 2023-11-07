@@ -28,7 +28,7 @@
         justify-content: space-between;
     }
     &__title {
-        color: white;
+        color: var(--contrast-color);
         font-size: $standart-fz;
     }
     &__return {
@@ -66,15 +66,14 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            align-items: center;
             &-line {
                 width: 30%;
                 height: 1px;
-                background-color: $primary-color;
+                background-color: var(--primary-color);
             }
             span {
                 margin: 0 10px 0 10px;
-                color: $primary-color;
+                color: var(--primary-color);
                 font-size: $small-fz;
                 white-space: nowrap;
             }

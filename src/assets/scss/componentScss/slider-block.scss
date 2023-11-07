@@ -26,7 +26,7 @@
             width: 20px;
             height: 20px;
             path {
-                fill: white;
+                fill: var(--contrast-color);
             }
             transition: transform ease-in-out 0.5s;
             &:hover {
@@ -36,7 +36,7 @@
     }
     &-title {
         font-size: 32px;
-        color: $contrast-color;
+        color: var(--contrast-color);
     }
     @media screen and (max-width: 530px) {
         padding-right: 20px;

@@ -59,7 +59,7 @@
   &__header__title-main {
     display: flex;
     align-items: center;
-    color: $primary-color;
+    color: var(--primary-color);
 
     h3 {
       margin-right: 5px;

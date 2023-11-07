@@ -2,6 +2,7 @@
 @import "./mixins";
 @import "./variables";
 @import "./fonts";
+
 @import './componentScss/signUp.scss';
 @import './componentScss/header.scss';
 @import './componentScss/sideMenu.scss';
@@ -19,10 +20,25 @@
     font-weight: 400;
 }
 
+:root {
+    --primary-color: #8C8C8C;
+    --primary-color-dark: #ffffff;
+    --background-color: #fff;
+    --primary-color-dark2: #fff;
+    --contrast-color: #2D2D2D;
+}
+html[data-theme="dark"] {
+    --primary-color: #8C8C8C;
+    --primary-color-dark: #2D2D2D;
+    --background-color: #2B2B2B;
+    --primary-color-dark2: #2A2A2A;
+    --contrast-color: #fff;
+}
+
 //temp option
 body{
     -webkit-tap-highlight-color: transparent;
-    background: #2B2B2B;
+    background: var(--background-color);
     overflow-x: hidden;
 }
 
