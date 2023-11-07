@@ -3,11 +3,11 @@
 
 .card {
     display: flex;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.137);
     background-color: var(--primary-color-dark2);
     width: 100%;
     height: 216px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 3px solid transparent;
     transition: height ease 0.4s, width 0.4s, box-shadow ease 0.4s, border-color ease 0.3s;
     &_selected {
@@ -73,7 +73,7 @@
         margin-bottom: 5px;
         position: relative;
         width: 100px;
-        height: 2px;
+        height: 5px;
         background-color: $secondary-color-opacity;
         z-index: 1;
         &_active {

@@ -6,8 +6,9 @@ import useWindowResize from "../../hooks/useWindowResize";
 import { PiListMagnifyingGlassThin } from "react-icons/pi";
 import { BsBookmarks } from "react-icons/bs";
 import { сropText } from "../../servises/animeServices";
+import ReactPlayer from "react-player/youtube";
 
-const MovieHeader = ({ anime }) => {
+const MovieHeader = ({ anime, isVideoPlaying }) => {
     const { isFullWidth } = useWindowResize;
 
     return anime ? (
@@ -17,11 +18,13 @@ const MovieHeader = ({ anime }) => {
                     <div className="movie__header__title-main">
                         <DefaultTitle title={anime.title} animeID={anime.mal_id} />
                         <PiListMagnifyingGlassThin
-                            style={{ paddingLeft: "5px", fontSize: "30px" }}
+                            style={{ minWidth: "20px", minHeight: "20px" }}
                         />
                     </div>
                     <div className="movie__header__title-second">
-                        <h3>Watching</h3>
+                        <h3>
+                            <DefaultGreyText text={"Watching"} />
+                        </h3>
                         <BsBookmarks />
                     </div>
                 </div>
@@ -44,7 +47,21 @@ const MovieHeader = ({ anime }) => {
                 </div>
             </div>
             <div className="movie__header__image">
-                <img src={anime.images.webp.large_image_url} alt="anime-image" />
+                <ReactPlayer
+                    url={
+                        anime.trailer.embed_url ||
+                        "https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                    }
+                    volume={0.05}
+                    controls={true}
+                    loop={true}
+                    playing={isVideoPlaying}
+                    config={{
+                        youtube: {
+                            playerVars: { showinfo: 1 },
+                        },
+                    }}
+                />
             </div>
         </div>
     ) : null;

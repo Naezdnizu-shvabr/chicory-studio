@@ -10,14 +10,18 @@ import image3 from "../../assets/img/imgSlider/img_3.png";
 import image4 from "../../assets/img/imgSlider/img_4.png";
 
 import Fancybox from "../../features/fancyBox/FancyBox";
+import ReactPlayer from "react-player";
 
-const MovieSlider = ({ title }) => {
+const MovieSlider = ({ anime, isVideoPlaying, setIsVideoPlaying }) => {
     const { slidesPerView } = useWindowResize();
     const images = [image1, image2, image3, image4];
-
+    const handlePlayVideo = () => {
+        setIsVideoPlaying((prev) => !prev);
+        console.log(isVideoPlaying);
+    };
     return (
         <div className="movie-slider">
-            <h2 className="movie-slider__title">{title}</h2>
+            <h2 className="movie-slider__title">{anime.title}</h2>
             <Swiper
                 modules={[A11y]}
                 className="movie-swiper slider"
@@ -27,7 +31,22 @@ const MovieSlider = ({ title }) => {
                     <SwiperSlide key={index}>
                         <Fancybox>
                             <a data-fancybox="gallery" href={image}>
-                                <img src={image} alt={`Slide ${index + 1}`} />
+                                {index === 0 ? (
+                                    <ReactPlayer
+                                        url={
+                                            anime.trailer.embed_url ||
+                                            "https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                                        }
+                                        playing={isVideoPlaying}
+                                        width={317}
+                                        height={182}
+                                        volume={0.05}
+                                        controls={true}
+                                        onClick={handlePlayVideo}
+                                    />
+                                ) : (
+                                    <img src={image} alt={`Slide ${index + 1}`} />
+                                )}
                             </a>
                         </Fancybox>
                     </SwiperSlide>
