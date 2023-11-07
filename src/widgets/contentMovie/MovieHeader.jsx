@@ -6,11 +6,11 @@ import useWindowResize from "../../hooks/useWindowResize";
 import { PiListMagnifyingGlassThin } from "react-icons/pi";
 import { BsBookmarks } from "react-icons/bs";
 import { сropText } from "../../servises/animeServices";
-import ReactPlayer from "react-player/youtube";
+import Player from "../../shared/player/Player";
 
-const MovieHeader = ({ anime, isVideoPlaying }) => {
+const MovieHeader = ({ anime }) => {
     const { isFullWidth } = useWindowResize;
-
+    
     return anime ? (
         <div className="movie__header" key={anime.mal_id}>
             <div className="movie__header__content">
@@ -34,34 +34,20 @@ const MovieHeader = ({ anime, isVideoPlaying }) => {
                     <DefaultGreyText text={anime.genres[0].name} />
                     {anime.genres[1] ? (
                         <>
-                            <div className="movie__header__dot"></div>
+                            <span className="movie__header__dot"></span>
                             <DefaultGreyText text={anime.genres[1].name} />
                         </>
                     ) : null}
                     {anime.genres[2] ? (
                         <>
-                            <div className="movie__header__dot"></div>
+                            <span className="movie__header__dot"></span>
                             <DefaultGreyText text={anime.genres[2].name} />
                         </>
                     ) : null}
                 </div>
             </div>
             <div className="movie__header__image">
-                <ReactPlayer
-                    url={
-                        anime.trailer.embed_url ||
-                        "https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                    }
-                    volume={0.05}
-                    controls={true}
-                    loop={true}
-                    playing={isVideoPlaying}
-                    config={{
-                        youtube: {
-                            playerVars: { showinfo: 1 },
-                        },
-                    }}
-                />
+                <Player url={anime.trailer.embed_url}/>
             </div>
         </div>
     ) : null;

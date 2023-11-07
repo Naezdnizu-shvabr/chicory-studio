@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import DefaultLayout from "../../layouts/Default/DefaultLayout";
 import Header from "../../widgets/header/Header";
 import MovieHeader from "../../widgets/contentMovie/MovieHeader";
@@ -7,7 +7,7 @@ import MovieSlider from "../../widgets/movieSlider/MovieSlider";
 
 const MoviePage = () => {
     const animeContext = useContext(DataContext);
-    const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
     return (
         <DefaultLayout>
             <div className="movie">
@@ -17,10 +17,8 @@ const MoviePage = () => {
                     src={animeContext.currentAnime.images.webp.large_image_url}
                     alt={animeContext.currentAnime.title}
                 />
-                <MovieHeader anime={animeContext.currentAnime} isVideoPlaying={isVideoPlaying}/>
+                <MovieHeader anime={animeContext.currentAnime} />
                 <MovieSlider
-                    isVideoPlaying={isVideoPlaying}
-                    setIsVideoPlaying={setIsVideoPlaying}
                     title={"Preview"}
                     anime={animeContext.currentAnime}
                 />
