@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Links = ({ item }) => {
     return (
-        <Link to={item.to} className="menu__nav-link">
+        <NavLink
+            className={({ isActive }) =>
+                isActive ? "menu__nav-link menu__nav-link_active" : "menu__nav-link"
+            }
+            to={item.to}>
             <div>{item.img}</div>
             <div className="menu__nav-name">{item.name}</div>
-        </Link>
+        </NavLink>
     );
 };
 

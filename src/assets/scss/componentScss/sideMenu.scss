@@ -27,6 +27,12 @@
         height: 20px;
         color: var(--primary-color);
       }
+      &:hover, &_active{
+        color: var(--contrast-color);
+        svg{
+          color: var(--contrast-color);
+        }
+      }
     }
   }
 
