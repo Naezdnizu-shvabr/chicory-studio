@@ -6,6 +6,7 @@ import useWindowResize from "../../hooks/useWindowResize";
 import { PiListMagnifyingGlassThin } from "react-icons/pi";
 import { BsBookmarks } from "react-icons/bs";
 import { сropText } from "../../servises/animeServices";
+import Player from "../../shared/player/Player";
 
 const MovieHeader = ({ anime }) => {
     const { isFullWidth } = useWindowResize;
@@ -17,12 +18,12 @@ const MovieHeader = ({ anime }) => {
                     <div className="movie__header__title-main">
                         <DefaultTitle title={anime.title} animeID={anime.mal_id} />
                         <PiListMagnifyingGlassThin
-                            style={{ paddingLeft: "5px", fontSize: "30px" }}
+                            style={{ minWidth: "20px", minHeight: "20px" }}
                         />
                     </div>
                     <div className="movie__header__title-second">
                         <h3>Watching</h3>
-                        <BsBookmarks />
+                        <BsBookmarks style={{ minWidth: "20px", minHeight: "20px" }} />
                     </div>
                 </div>
                 <DefaultGreyText text={anime.aired.string} />
@@ -31,26 +32,20 @@ const MovieHeader = ({ anime }) => {
                     <DefaultGreyText text={anime.genres[0].name} />
                     {anime.genres[1] ? (
                         <>
-                            <div className="movie__header__dot"></div>
+                            <span className="movie__header__dot"></span>
                             <DefaultGreyText text={anime.genres[1].name} />
                         </>
                     ) : null}
                     {anime.genres[2] ? (
                         <>
-                            <div className="movie__header__dot"></div>
+                            <span className="movie__header__dot"></span>
                             <DefaultGreyText text={anime.genres[2].name} />
                         </>
                     ) : null}
                 </div>
             </div>
             <div className="movie__header__image">
-                <iframe
-                    width="560"
-                    height="315"
-                    src={anime.trailer.embed_url}
-                    frameBorder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen></iframe>
+                <Player url={anime.trailer.embed_url} />
             </div>
         </div>
     ) : null;

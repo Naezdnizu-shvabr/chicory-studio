@@ -19,11 +19,7 @@ const MoviePage = () => {
                 />
 
                 <MovieHeader anime={animeContext.currentAnime} />
-                <MovieSlider
-                    Block
-                    title={"Preview"}
-                    topAnime={animeContext.currentAnime}
-                />
+                <MovieSlider title={"Preview"} anime={animeContext.currentAnime} />
             </div>
         </DefaultLayout>
     );
