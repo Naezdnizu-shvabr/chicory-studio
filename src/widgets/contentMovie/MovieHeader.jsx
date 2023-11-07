@@ -44,7 +44,13 @@ const MovieHeader = ({ anime }) => {
                 </div>
             </div>
             <div className="movie__header__image">
-                <img src={anime.images.webp.large_image_url} alt="anime-image" />
+                <iframe
+                    width="560"
+                    height="315"
+                    src={anime.trailer.embed_url}
+                    frameBorder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen></iframe>
             </div>
         </div>
     ) : null;

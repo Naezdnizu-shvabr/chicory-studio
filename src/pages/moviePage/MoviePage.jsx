@@ -7,7 +7,7 @@ import MovieSlider from "../../widgets/movieSlider/MovieSlider";
 
 const MoviePage = () => {
     const animeContext = useContext(DataContext);
-
+    console.log(animeContext.currentAnime);
     return (
         <DefaultLayout>
             <div className="movie">
@@ -17,6 +17,7 @@ const MoviePage = () => {
                     src={animeContext.currentAnime.images.webp.large_image_url}
                     alt={animeContext.currentAnime.title}
                 />
+
                 <MovieHeader anime={animeContext.currentAnime} />
                 <MovieSlider
                     Block
