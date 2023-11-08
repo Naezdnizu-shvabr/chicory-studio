@@ -3,11 +3,11 @@ import DefaultLayout from "../../layouts/Default/DefaultLayout";
 import Header from "../../widgets/header/Header";
 import MovieHeader from "../../widgets/contentMovie/MovieHeader";
 import { DataContext } from "../../context/Contex";
-import MovieSlider from "../../widgets/movieSlider/MovieSlider";
+// import MovieSlider from "../../widgets/movieSlider/MovieSlider";
+import MovieSliderBlock from "../../widgets/movieSlider/MovieSlider";
 
 const MoviePage = () => {
     const animeContext = useContext(DataContext);
-    console.log(animeContext.currentAnime);
     return (
         <DefaultLayout>
             <div className="movie">
@@ -19,7 +19,10 @@ const MoviePage = () => {
                 />
 
                 <MovieHeader anime={animeContext.currentAnime} />
-                <MovieSlider title={"Preview"} anime={animeContext.currentAnime} />
+                <MovieSliderBlock
+                    title={"Preview"}
+                    anime={animeContext.currentAnime}
+                />
             </div>
         </DefaultLayout>
     );

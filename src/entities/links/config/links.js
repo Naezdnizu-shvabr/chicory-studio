@@ -3,6 +3,6 @@ import { PiBookmarks } from "react-icons/pi";
 
 export const links = [
     { name: "Home", img: <TbHomeSearch />, to: "/" },
-    { name: "Catalog", img: <TbListSearch />, to: "/1" },
-    { name: "Saved", img: <PiBookmarks />, to: "/2" },
+    { name: "Catalog", img: <TbListSearch />, to: "/catalog" },
+    { name: "Saved", img: <PiBookmarks />, to: "/saved" },
 ];

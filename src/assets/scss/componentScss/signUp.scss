@@ -33,9 +33,16 @@
     }
     &__return {
         cursor: pointer;
-        transition: transform ease 0.4s;
+        transition: scale ease 0.4s;
         &:hover {
-            transform: rotate(360deg);
+            scale: 1.2;
+        }
+        svg{
+            width: 20px;
+            height: 20px;
+            path{
+                fill: var(--contrast-color);
+            }
         }
     }
     &__form {

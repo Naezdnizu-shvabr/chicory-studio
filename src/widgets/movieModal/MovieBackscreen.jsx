@@ -15,7 +15,7 @@ const MovieBackscreen = () => {
     const currentAnime = animeContext.currentAnime;
 
     useEffect(() => {
-        animeContext.updateRandomIndexAndImage(currentAnime);
+        animeContext.getRandomAnime(currentAnime);
     }, [currentAnime]);
 
     return currentAnime ? (

@@ -5,11 +5,11 @@ const Player = ({ url, width, height }) => {
     return (
         <ReactPlayer
             url={url || "https://www.youtube.com/watch?v=ysz5S6PUM-U"}
-            width={width}
-            height={height}
-            volume={0.3}
+            volume={0.05}
             controls={true}
             loop={true}
+            width={width}
+            height={height}
             config={{
                 youtube: {
                     playerVars: { showinfo: 1 },

@@ -3,9 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
 import useWindowResize from "../../hooks/useWindowResize";
-
 import Fancybox from "../../features/fancyBox/FancyBox";
-import Player from "../../shared/player/Player";
 
 const MovieSlider = ({ anime }) => {
     const { slidesPerView } = useWindowResize();
@@ -19,28 +17,22 @@ const MovieSlider = ({ anime }) => {
                 modules={[A11y]}
                 className="movie-swiper slider"
                 spaceBetween={20}
-                slidesPerView={slidesPerView}>
+                slidesPerView={slidesPerView - 0.2}>
                 {imageUrls.map((image, index) => (
                     <SwiperSlide key={index}>
                         <Fancybox>
                             <a data-fancybox="gallery" href={image}>
-                                {index === 0 ? (
-                                    <Player
-                                        url={anime.trailer.embed_url}
-                                        width={318}
-                                        height={178}
-                                    />
-                                ) : (
                                     <img
                                         src={image}
                                         alt={anime.title}
                                         style={{
-                                            width: "350px",
-                                            height: "182px",
+                                            maxWidth: "350px",
+                                            maxHeight: "182px",
+                                            width: "100%",
+                                            height: '100%',
                                             objectFit: "cover",
                                         }}
                                     />
-                                )}
                             </a>
                         </Fancybox>
                     </SwiperSlide>

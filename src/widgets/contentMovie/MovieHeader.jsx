@@ -10,7 +10,7 @@ import Player from "../../shared/player/Player";
 
 const MovieHeader = ({ anime }) => {
     const { isFullWidth } = useWindowResize;
-
+    
     return anime ? (
         <div className="movie__header" key={anime.mal_id}>
             <div className="movie__header__content">
@@ -22,12 +22,14 @@ const MovieHeader = ({ anime }) => {
                         />
                     </div>
                     <div className="movie__header__title-second">
-                        <h3>Watching</h3>
-                        <BsBookmarks style={{ minWidth: "20px", minHeight: "20px" }} />
+                        <h3>
+                            <DefaultGreyText text={"Watching"} />
+                        </h3>
+                        <BsBookmarks />
                     </div>
                 </div>
                 <DefaultGreyText text={anime.aired.string} />
-                <DefaultText text={сropText(anime.synopsis, isFullWidth ? 25 : 35)} />
+                <DefaultText text={сropText(anime.synopsis, isFullWidth ? 50 : 60)} />
                 <div className="movie__header__genres">
                     <DefaultGreyText text={anime.genres[0].name} />
                     {anime.genres[1] ? (
@@ -45,7 +47,7 @@ const MovieHeader = ({ anime }) => {
                 </div>
             </div>
             <div className="movie__header__image">
-                <Player url={anime.trailer.embed_url} />
+                <Player url={anime.trailer.embed_url}/>
             </div>
         </div>
     ) : null;

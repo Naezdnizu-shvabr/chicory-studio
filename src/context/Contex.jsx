@@ -42,7 +42,7 @@ const Context = ({ children }) => {
         }
     }, [bestRetedAnime]);
 
-    const updateRandomIndexAndImage = (animeToShow) => {
+    const getRandomAnime = (animeToShow) => {
         const newIndex = getRandomNum(0, 24);
         setRandomIndex(newIndex);
         getAnime(animeToShow || anime, setHomeImage, newIndex);
@@ -61,7 +61,7 @@ const Context = ({ children }) => {
                 fallAnimeSeasons: fallAnimeSeasons,
                 randomIndex: randomIndex,
                 homeImage: homeImage,
-                updateRandomIndexAndImage: updateRandomIndexAndImage,
+                getRandomAnime: getRandomAnime,
                 updateAnimeInfo: updateAnimeInfo,
                 setAnime: setAnime,
                 anime: anime,

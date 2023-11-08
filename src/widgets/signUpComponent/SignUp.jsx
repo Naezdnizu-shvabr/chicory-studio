@@ -1,6 +1,6 @@
 import React from "react";
 import signUpBackgroundImg from "../../assets/img/7b6e580de3a2f7678ee62c8a03488098.png";
-import returnIcon from "./../../assets/img/keyboard-return.svg";
+import {PiArrowBendDownLeftBold} from 'react-icons/pi';
 import SignUpForm from "../../entities/signUpForm/SignUpForm";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const SignUp = () => {
                         <div className="signUp__top-block">
                             <div className="signUp__title">Sign up</div>
                             <Link to="/" className="signUp__return">
-                                <img src={returnIcon} alt="" />
+                                <PiArrowBendDownLeftBold/>
                             </Link>
                         </div>
                         <SignUpForm />
